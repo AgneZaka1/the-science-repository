@@ -32,9 +32,18 @@ This is the Day 1 scaffold for the R workshop. By the end of Day 3, the same str
    renv::restore()            # installs the exact package versions used here
    ```
 4. **Copy your env template:** `cp .Renviron.example .Renviron`. Edit `DATA_MODE=mock` (default) or `real`.
-5. **Run [`R/01_setup.R`](R/01_setup.R).** This confirms the environment is working.
+5. **Run the pipeline end-to-end:**
+   ```bash
+   Rscript R/02_data_processing.R   # raw -> clean
+   Rscript R/03_analysis.R          # models + figures
+   quarto render                    # website -> docs/
+   ```
 
 If `renv::restore()` doesn't find a lockfile yet, you're the first author — run `renv::init()` instead. See [Environment management](#environment-management) below.
+
+## The example analysis
+
+The template ships with a synthetic consumer decision-making study (300 fake participants, 5 message-framing conditions). See [`reports/00_walkthrough.qmd`](reports/00_walkthrough.qmd) — it walks through loading, cleaning, descriptives, regression, mediation, and moderation, and renders to HTML/PDF/DOCX from one source. Replace the dataset and the walkthrough with your own when you fork.
 
 ---
 
@@ -97,8 +106,17 @@ See [`.gitignore`](.gitignore) for the exact rules and [`data/README.md`](data/R
 
 ## Publishing
 
-- **Website:** `quarto render` writes to `docs/`. Enable GitHub Pages → "Deploy from branch" → `main` / `docs`.
-- **Paper:** edit `manuscript/main.tex` locally (Texifier or `tinytex::pdflatex()`), or push to Overleaf via git.
+One source, three folders. `quarto render` produces:
+
+| Output | Lands in | Notes |
+| --- | --- | --- |
+| Website (HTML) | [`docs/`](docs/) | GitHub Pages → "Deploy from branch" → `main`/`docs`. |
+| Paper PDF | [`manuscript/output/`](manuscript/output/) | Auto-moved by [`scripts/post_render.R`](scripts/post_render.R). Needs `tinytex`. |
+| Paper DOCX | [`manuscript/output/`](manuscript/output/) | For collaborators who don't use LaTeX. |
+
+The orchestration file is [`reports/00_walkthrough.qmd`](reports/00_walkthrough.qmd) — its YAML lists `html`, `pdf`, and `docx` formats so a single `quarto render` fills every folder.
+
+- **For a hand-crafted journal manuscript:** edit `manuscript/main.tex` instead (Texifier or `tinytex::pdflatex()`), or push to Overleaf via git. See [`manuscript/README.md`](manuscript/README.md).
 - **App:** `shiny::runApp("shiny/")` locally, or deploy to shinyapps.io.
 
 Each folder's README walks you through the specifics.

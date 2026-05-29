@@ -32,8 +32,7 @@ renv/staging/
 *.html
 *.pdf
 # But DO commit the published site under docs/ and the manuscript PDFs in manuscript/output/
-!docs/**/*.html
-!docs/**/*.pdf
+!docs/**
 !manuscript/output/*.pdf
 
 # ---- Sensitive data ----

@@ -1,0 +1,301 @@
+"ParticipantID","Condition","Age","Gender","IncomeGroup","ProductCategory","ps_1","ps_2","ps_3","sc_1","sc_2","sc_3","bt_1","bt_2","bt_3_r","pv_1","pv_2","pv_3","perceived_quality","perceived_social_norm","pi_1","pi_2","pi_3","willingness_to_pay","choice","number_products_bought"
+"P001","scarcity_frame",36,"female","low","food",5,7,7,3,3,3,6,6,2,4,5,5,6,4,3,2,5,35.31,0,2
+"P002","combined_frame",63,"M","low","clothing",2,4,3,4,4,4,4,4,2,5,3,4,3,5,4,4,3,39.74,0,4
+"P003","social_proof_frame",41,"Female","medium","services",5,5,3,6,6,5,2,1,5,3,5,2,3,5,4,4,4,39.68,0,3
+"P004","control ",51,"non-binary","medium","electronics",5,4,4,3,2,5,4,3,6,3,4,3,4,4,2,2,4,44.55,0,1
+"P005","sustainability_frame",38,"W","medium","services",2,3,3,4,4,4,,5,1,4,4,3,4,5,,3,3,23.99,0,3
+"P006","scarcity_frame",46,"male","medium","food",4,5,4,4,4,4,3,3,4,3,2,3,3,5,5,4,5,48.11,0,2
+"P007","combined_frame",46,"Male","medium","electronics",6,6,5,4,3,4,6,6,3,4,3,3,5,6,4,4,4,41.49,0,0
+"P008","sustainability_frame",43,"Female","high","food",4,5,3,4,4,5,4,4,3,3,4,4,4,4,3,4,3,26.56,1,2
+"P009","sustainability_frame",40,"female","medium","food",4,5,4,4,6,4,4,5,5,4,4,5,4,3,3,2,3,34.11,0,0
+"P010","social_proof_frame",27,"Female","medium","food",3,1,2,5,4,5,3,1,5,3,5,3,3,4,3,4,3,28.78,0,4
+"P011","scarcity_frame",58,"NB","low","clothing",3,3,5,5,5,5,3,4,5,4,4,5,4,5,2,4,3,43,0,1
+"P012","scarcity_frame",58,"woman","medium","services",4,2,3,4,4,4,6,4,3,3,5,3,4,4,5,3,5,22.18,0,2
+"P013","scarcity_frame",35,"Female","low","food",6,6,4,6,7,6,7,5,1,5,6,6,5,6,4,4,5,62.33,0,4
+"P014","control",43,"man","medium","clothing",2,4,5,4,4,5,2,4,5,3,3,4,2,2,5,3,5,32.35,0,1
+"P015","control",35,"Man","medium","services",2,2,3,4,5,6,4,3,5,4,5,5,4,5,5,4,6,52.95,1,2
+"P016","sustainability_frame",52,"female","low","electronics",5,2,5,4,3,4,6,5,4,5,4,4,4,5,5,5,5,38.04,1,3
+"P017","sustainability_frame",18,"Prefer not to say","low","food",5,4,3,1,4,2,4,3,5,3,5,6,4,3,3,6,6,56.9,1,4
+"P018","control",41,"Male","medium","electronics",4,5,6,7,6,6,5,4,4,6,7,7,5,4,5,5,3,68.69,1,2
+"P019","social_proof_frame",36,"woman","medium","electronics",2,1,2,6,4,7,3,5,4,7,7,6,7,5,7,7,7,85.69,1,5
+"P020","social_proof_frame",48,"male","medium","clothing",3,2,2,3,1,3,2,1,7,4,3,2,2,4,4,5,4,34.34,0,0
+"P021","control",38,"Female","low","electronics",4,5,5,3,3,4,2,2,4,2,5,5,5,4,4,5,5,41.75,0,3
+"P022","sustainability_frame",49,"woman","high","services",6,6,5,7,7,5,6,5,3,5,5,5,5,6,2,3,3,51.04,1,2
+"P023","combined_frame",44,"Man","low","clothing",4,6,5,4,4,4,5,6,4,6,5,7,6,5,5,6,6,70.89,1,2
+"P024","scarcity_frame",52,"Female","low","clothing",3,3,5,2,3,2,3,5,5,4,4,4,3,5,5,4,3,37.86,0,3
+"P025","control",41,"female","low","food",4,2,4,2,3,3,6,,3,4,4,4,5,5,6,5,5,30.63,0,4
+"P026","control",46,"Female","high","food",7,5,6,5,4,3,3,3,4,5,4,6,4,3,4,4,4,35.21,0,2
+"P027","sustainability_frame",20,"Woman","medium","food",5,6,5,4,3,3,3,3,5,3,3,3,4,2,4,3,5,38.04,1,3
+"P028","control",27,"woman","low","food",7,7,7,3,6,4,5,4,2,3,4,3,5,4,1,1,3,6.74,0,1
+"P029","control",44,"Female","high","services",6,6,7,6,5,6,3,3,4,2,4,3,3,4,3,3,3,12.84,0,2
+"P030","sustainability_frame",36,"M","medium","clothing",3,3,4,5,2,5,4,5,5,4,6,5,4,5,5,5,5,66.39,0,1
+"P031","sustainability_frame",44,"W","high","services",7,7,7,6,5,5,3,3,4,7,7,7,5,5,6,5,5,66.36,0,2
+"P032","sustainability_frame ",40,"Prefer not to say","-99","electronics",4,3,3,4,4,4,5,3,4,5,2,3,3,4,4,4,4,47.77,0,2
+"P033","combined_frame ",47,"female","medium","food",5,6,6,6,6,6,5,6,4,4,5,6,5,5,3,4,2,26.43,0,0
+"P034","social_proof_frame",27,"W","medium","electronics",7,7,5,3,3,2,3,5,3,4,4,4,4,4,5,5,3,51.19,0,2
+"P035","combined_frame",33,"man","medium","services",6,6,7,4,4,3,6,5,3,5,4,6,5,5,4,4,4,46.93,0,2
+"P036","scarcity_frame",32,"man","high","clothing",2,3,2,5,6,6,4,4,5,6,6,6,6,5,4,4,5,59.27,0,3
+"P037","combined_frame",,"Woman","-99","clothing",4,4,4,1,1,2,4,3,5,4,3,3,4,3,4,6,5,43.24,1,3
+"P038","scarcity_frame ",18,"woman","high","electronics",7,7,6,6,6,6,1,1,7,3,4,3,1,4,3,4,4,30.57,0,3
+"P039","scarcity_frame",18,"Prefer not to say","medium","electronics",5,6,4,7,4,5,1,1,7,5,5,6,3,4,5,4,4,56.23,1,5
+"P040","combined_frame",44,"M","high","food",3,3,3,7,6,7,1,2,7,7,7,7,5,5,7,6,7,74.27,1,4
+"P041","social_proof_frame",38,"M","medium","electronics",2,3,2,5,5,6,6,5,4,6,5,4,3,4,4,4,4,38.39,1,1
+"P042","scarcity_frame",18,"female","medium","clothing",5,6,4,4,3,5,3,5,2,4,5,6,4,4,5,4,5,37.52,1,2
+"P043","social_proof_frame",41,"Man","high","food",6,5,7,6,6,7,5,4,4,6,4,5,4,5,3,3,4,36.39,0,2
+"P044","sustainability_frame",33,"man","high","clothing",6,5,3,4,3,4,4,6,2,4,3,4,4,5,5,4,4,32.12,1,2
+"P045","sustainability_frame",33,"W","medium","clothing",5,4,4,2,1,2,4,5,4,3,5,5,4,5,5,5,4,43.63,0,1
+"P046","scarcity_frame",36,"M","medium","services",4,4,3,6,5,7,4,3,6,4,5,5,4,5,5,5,4,52.75,1,3
+"P047","sustainability_frame",46,"man","low","services",4,4,4,4,3,3,4,3,,4,4,,3,3,3,5,4,35.62,1,1
+"P048","scarcity_frame",18,"male","low","electronics",4,5,5,3,4,2,4,5,3,4,3,3,3,6,4,4,4,37.04,0,1
+"P049","scarcity_frame",38,"man","high","services",1,2,4,5,5,4,5,6,3,6,6,7,5,4,7,6,6,75.8,1,4
+"P050","control",43,"woman","medium","services",4,4,4,5,7,6,4,3,4,5,5,7,7,5,4,3,4,64.48,0,3
+"P051","scarcity_frame",35,"male","high","electronics",5,4,7,6,7,6,4,4,4,4,5,4,5,4,5,4,4,44.59,0,1
+"P052","social_proof_frame ",25,"male","low","electronics",5,4,5,5,7,6,3,4,5,4,4,4,2,4,5,5,5,52.82,1,2
+"P053","scarcity_frame",36,"Prefer not to say","medium","clothing",6,4,5,4,7,6,4,5,5,7,7,7,5,5,6,5,5,61.31,1,1
+"P054","control",43,"male","low","clothing",6,5,6,5,5,5,5,3,4,4,4,4,6,4,3,4,3,42.66,1,1
+"P055","scarcity_frame ",56,"woman","medium","clothing",4,5,3,4,,4,3,4,4,6,5,5,5,5,5,5,4,35.61,1,2
+"P056","control",23,"Man","high","food",2,4,4,3,2,5,4,4,4,6,4,6,4,3,3,3,3,43.31,1,2
+"P057","scarcity_frame",39,"Woman","medium","electronics",5,5,5,6,5,5,5,5,4,4,5,6,4,4,7,6,5,48.02,1,2
+"P058","scarcity_frame ",54,"man","low","food",4,5,5,5,3,2,4,2,5,4,5,5,4,4,4,3,4,42.88,0,3
+"P059","scarcity_frame",25,"Woman","medium","clothing",2,1,2,3,3,3,4,3,4,4,4,5,3,4,4,4,4,45.96,0,1
+"P060","social_proof_frame",47,"Man","high","electronics",2,1,2,4,4,5,5,5,3,4,4,4,5,3,6,6,7,62.49,0,4
+"P061","combined_frame",18,"man","low","food",4,4,4,5,4,5,2,2,5,4,4,4,4,5,2,4,2,26.06,0,0
+"P062","combined_frame",37,"female","medium","food",4,3,3,2,3,4,4,5,6,7,6,6,6,5,4,6,6,58.85,1,2
+"P063","scarcity_frame",54,"man","medium","clothing",3,2,3,3,1,3,5,3,4,4,4,4,4,4,5,2,3,16.84,0,3
+"P064","combined_frame",18,"Man","medium","services",4,3,4,7,5,6,4,3,5,5,3,4,4,5,4,3,5,43.84,1,2
+"P065","sustainability_frame",52,"Female","high","food",4,5,4,2,4,3,2,4,4,6,5,4,3,4,4,6,6,44.04,0,3
+"P066","scarcity_frame ",42,"Man","low","services",4,4,5,5,4,6,5,5,4,5,2,5,4,6,4,4,3,42.99,1,1
+"P067","scarcity_frame",32,"man","medium","food",5,6,4,4,4,5,1,2,7,3,4,4,3,5,4,3,4,49.95,1,2
+"P068","social_proof_frame",39,"Male","medium","electronics",3,3,3,2,2,2,6,5,2,4,3,4,5,4,4,5,4,31.77,0,0
+"P069","combined_frame",35,"M","medium","food",4,3,4,2,5,3,4,4,5,3,3,4,5,5,5,5,7,45.79,1,1
+"P070","scarcity_frame",35,"woman","high","services",1,3,4,4,5,5,2,3,6,3,5,3,3,4,5,5,7,47.75,1,3
+"P071","scarcity_frame",36,"female","high","electronics",3,4,4,3,4,3,5,6,1,3,4,3,6,4,6,4,,43.14,0,0
+"P072","control",34,"Prefer not to say","medium","electronics",5,3,5,6,7,6,3,3,6,4,6,5,5,4,5,4,4,59.01,1,2
+"P073","sustainability_frame",27,"male","medium","clothing",6,6,7,6,7,6,6,5,1,4,3,5,6,6,3,4,4,52.25,1,1
+"P074","sustainability_frame",45,"M","medium","electronics",6,6,6,4,3,3,2,4,6,3,4,3,4,6,6,4,3,32.81,1,3
+"P075","control",49,"Male","low","electronics",5,4,4,3,3,2,4,4,5,4,5,5,4,3,4,5,5,44.11,0,3
+"P076","control",26,"Female","high","clothing",4,4,4,5,6,5,4,3,5,4,4,5,4,4,2,4,3,29.79,0,1
+"P077","scarcity_frame",43,"male","medium","clothing",4,5,2,2,2,2,5,4,4,3,4,3,4,5,4,3,4,39.47,0,1
+"P078","social_proof_frame",33,"M","medium","clothing",7,7,6,6,4,6,3,2,4,4,4,5,4,5,1,1,1,1.86,0,2
+"P079","control",26,"W","medium","clothing",4,4,3,4,4,4,6,4,3,4,5,5,5,4,6,4,5,47.34,0,3
+"P080","social_proof_frame",47,"Man","medium","food",5,4,3,3,4,3,5,4,4,5,5,6,6,5,6,3,6,50.18,0,4
+"P081","combined_frame",19,"Woman","medium","clothing",5,5,5,5,4,4,,4,6,3,5,6,5,7,6,5,6,63.32,1,3
+"P082","sustainability_frame",38,"male","medium","electronics",3,3,4,5,3,4,4,3,5,5,3,5,2,3,5,6,6,46.5,1,1
+"P083","combined_frame ",54,"Woman","low","clothing",4,4,,4,3,4,3,3,4,5,5,5,5,4,5,6,5,39.81,1,1
+"P084","sustainability_frame",40,"Prefer not to say","high","electronics",4,3,6,5,5,4,2,3,6,3,6,5,3,4,5,4,4,32.31,0,3
+"P085","scarcity_frame",38,"Man","high","food",3,5,4,5,6,5,4,5,5,4,6,6,5,3,4,3,4,43.56,0,2
+"P086","combined_frame",44,"Man","medium","electronics",4,3,4,5,3,4,6,4,2,6,5,7,6,6,6,6,5,58.8,1,5
+"P087","scarcity_frame",30,"male","low","services",5,5,4,5,5,6,5,4,4,7,6,7,5,5,6,6,5,63.01,0,3
+"P088","social_proof_frame",46,"Woman","medium","services",4,5,4,5,3,5,4,3,5,4,5,3,3,4,4,4,4,53.55,1,2
+"P089","control ",23,"woman","low","electronics",4,4,4,7,6,6,4,3,3,5,4,5,5,3,3,4,5,43.46,0,2
+"P090","scarcity_frame",36,"W","high","electronics",5,5,3,3,2,4,4,6,3,4,4,3,3,4,4,5,4,49.81,0,3
+"P091","combined_frame",44,"male","low","electronics",3,4,2,4,5,3,4,4,,6,4,5,5,4,4,4,5,35.76,0,2
+"P092","control",25,"Male","medium","services",3,4,2,4,4,5,6,5,3,5,5,4,7,4,4,5,4,49.37,1,4
+"P093","social_proof_frame",44,"M","medium","food",5,2,3,5,5,5,3,3,5,5,4,3,4,4,6,5,7,55.65,0,5
+"P094","sustainability_frame",32,"female","low","clothing",3,4,3,3,3,5,4,3,5,7,6,6,5,4,5,7,4,46.22,1,3
+"P095","control",47,"Male","low","services",5,4,4,2,5,,5,6,4,2,3,3,4,4,5,5,6,50.49,1,4
+"P096","control",35,"woman","medium","electronics",5,4,5,6,6,4,3,5,5,4,5,5,5,3,4,5,4,37.21,1,1
+"P097","social_proof_frame ",28,"Non-binary","medium","clothing",5,5,5,4,5,7,1,1,6,4,4,3,3,3,5,5,4,40.29,0,3
+"P098","combined_frame",18,"Male","medium","clothing",3,3,3,3,2,2,3,2,4,,5,5,4,4,4,3,3,56.56,0,2
+"P099","scarcity_frame",36,"man","low","services",4,6,7,5,4,3,3,2,5,3,3,5,4,4,3,3,5,48.09,1,2
+"P100","scarcity_frame",22,"Male","low","services",4,4,4,4,5,4,4,4,6,4,4,4,4,3,3,3,5,41.63,0,1
+"P101","scarcity_frame",50,"Prefer not to say","high","food",4,3,2,6,5,6,5,4,3,4,4,3,5,3,4,3,4,29.73,1,1
+"P102","social_proof_frame",43,"female","low","food",7,7,7,6,5,7,4,6,5,4,5,5,4,5,3,3,6,30.69,0,3
+"P103","control",19,"woman","high","food",5,5,3,3,3,4,2,4,5,4,5,5,4,3,5,6,4,46.87,0,3
+"P104","control",43,"Prefer not to say","medium","services",5,4,3,7,6,6,3,4,5,5,7,6,3,5,6,5,5,52.25,1,4
+"P105","social_proof_frame",55,"man","low","services",5,,4,5,4,4,6,4,3,4,6,6,6,4,7,6,6,68.34,1,4
+"P106","scarcity_frame",48,"Man","medium","clothing",3,2,2,6,4,6,3,4,5,4,5,5,5,4,6,6,6,63.31,1,5
+"P107","scarcity_frame ",19,"woman","medium","clothing",4,3,4,7,6,5,4,3,6,4,3,3,3,5,6,3,4,47.03,0,2
+"P108","social_proof_frame",54,"Female","medium","services",3,3,3,3,3,3,2,3,7,5,3,3,3,4,4,2,3,37.85,1,2
+"P109","social_proof_frame",41,"female","medium","electronics",4,3,3,4,5,3,4,3,5,4,4,4,4,4,3,2,3,35.89,1,0
+"P110","combined_frame",32,"W","low","electronics",7,6,5,1,1,1,3,3,4,4,6,5,3,3,4,3,3,27.79,0,2
+"P111","sustainability_frame",25,"M","medium","clothing",6,6,6,4,5,5,5,4,3,5,5,5,5,4,3,2,3,51.47,0,2
+"P112","control",42,"female","medium","clothing",4,3,3,4,4,4,3,6,6,3,5,4,4,5,3,4,5,54.83,0,2
+"P113","scarcity_frame ",25,"W","medium","clothing",4,5,5,3,3,4,4,3,5,1,2,1,1,4,2,2,3,38.19,0,2
+"P114","combined_frame",26,"Male","high","services",3,5,4,3,3,4,3,2,7,4,5,5,3,4,4,5,5,51.93,1,2
+"P115","scarcity_frame",41,"male","high","clothing",4,6,6,4,4,5,2,4,6,3,5,5,3,5,5,5,4,44.63,0,3
+"P116","social_proof_frame",28,"man","low","food",2,1,3,4,3,5,3,4,4,3,2,3,3,6,3,4,3,36.01,0,2
+"P117","control",36,"woman","low","clothing",4,5,4,4,5,5,4,5,3,3,4,3,4,4,5,4,5,19.98,1,1
+"P118","scarcity_frame ",56,"Prefer not to say","low","services",4,5,5,6,4,5,1,2,7,6,6,6,3,5,5,6,5,51.41,0,2
+"P119","scarcity_frame",22,"M","medium","electronics",6,7,7,5,4,7,6,5,4,7,5,6,6,5,5,5,5,61.66,0,3
+"P120","sustainability_frame",41,"Female","low","food",3,3,4,3,2,4,2,3,6,3,2,2,3,4,3,5,4,26.65,1,1
+"P121","sustainability_frame",22,"Woman","low","food",5,4,5,4,5,4,6,5,3,7,6,6,4,5,6,5,,75.71,0,2
+"P122","social_proof_frame",29,"W","low","services",4,3,4,4,5,5,4,4,4,3,3,4,5,4,4,5,4,69.33,1,3
+"P123","control",18,"Woman","medium","food",3,4,4,3,3,4,1,3,5,4,4,5,3,6,6,3,5,32.68,0,2
+"P124","combined_frame",37,"W","medium","food",5,6,6,4,3,4,3,4,3,5,4,5,3,4,4,2,4,27.16,0,3
+"P125","scarcity_frame",47,"male","high","electronics",4,5,5,4,3,4,5,4,3,4,3,4,5,4,3,5,3,48.04,0,2
+"P126","combined_frame",41,"man","medium","food",6,6,4,5,5,5,5,6,1,6,5,6,6,4,4,5,5,60.89,1,4
+"P127","control",35,"woman","medium","services",2,3,1,5,7,7,3,5,4,4,5,4,4,3,7,7,6,64.23,1,3
+"P128","sustainability_frame",25,"Woman","medium","food",2,2,3,3,4,3,4,4,5,4,6,4,4,4,5,4,4,40.23,0,2
+"P129","social_proof_frame",61,"Man","low","services",4,4,5,5,5,5,6,5,5,3,4,3,3,5,,3,6,37.96,1,5
+"P130","combined_frame",68,"female","high","services",3,3,3,6,5,5,6,7,1,7,6,7,5,5,3,4,5,67.6,1,4
+"P131","control",40,"Woman","low","services",4,4,4,4,3,4,4,4,2,5,5,4,4,5,5,6,6,46.58,0,1
+"P132","scarcity_frame ",32,"man","medium","food",2,3,3,3,2,4,4,,4,3,3,2,3,4,5,6,6,54.51,1,5
+"P133","social_proof_frame",38,"M","low","food",3,4,4,4,2,3,3,4,3,6,6,4,5,5,5,3,5,54.38,0,0
+"P134","control",31,"man","high","electronics",5,3,4,2,2,3,4,4,5,3,2,1,4,4,1,1,3,21.41,0,2
+"P135","combined_frame",43,"Male","low","services",2,2,3,4,5,6,3,4,5,6,5,5,4,4,5,5,5,56.18,1,3
+"P136","combined_frame",27,"M","medium","electronics",2,3,2,7,4,5,4,2,5,5,5,4,4,5,4,5,6,45.97,1,2
+"P137","social_proof_frame",48,"non-binary","low","clothing",3,4,3,5,5,6,3,4,6,6,6,6,6,5,5,4,3,57.45,1,2
+"P138","sustainability_frame",36,"Man","medium","clothing",4,2,3,6,6,5,2,5,5,5,4,4,4,3,4,6,5,45.45,1,3
+"P139","sustainability_frame",47,"Female","medium","electronics",6,5,4,2,3,2,6,5,3,4,3,3,5,3,4,5,4,44.13,1,2
+"P140","social_proof_frame",18,"Male","low","food",2,2,3,4,3,3,,3,4,5,4,5,5,6,6,5,4,54.3,0,4
+"P141","sustainability_frame",32,"male","low","services",4,4,6,6,5,4,3,3,5,5,6,5,6,5,5,6,6,59.4,1,3
+"P142","scarcity_frame",48,"Male","low","clothing",2,4,4,4,4,4,4,4,3,5,5,5,4,4,7,5,6,58.95,1,2
+"P143","sustainability_frame",31,"M","high","clothing",4,4,4,2,4,2,4,3,4,4,5,3,3,4,3,4,4,43.48,1,2
+"P144","combined_frame",38,"Female","medium","clothing",2,4,2,5,5,6,4,6,2,5,7,7,6,5,5,6,5,66.69,0,3
+"P145","sustainability_frame",31,"woman","-99","electronics",3,3,6,2,2,3,2,4,5,4,3,4,2,5,3,5,5,41.31,0,4
+"P146","sustainability_frame",56,"woman","high","food",7,6,,2,1,1,4,4,4,4,6,4,5,5,4,4,5,44.32,0,0
+"P147","combined_frame",61,"Prefer not to say","high","electronics",4,3,3,4,3,4,5,3,3,7,5,6,5,4,4,6,4,59.29,0,1
+"P148","sustainability_frame",33,"W","low","electronics",,4,5,7,5,7,3,3,6,6,5,6,3,5,4,4,5,51.72,0,0
+"P149","combined_frame",59,"man","high","electronics",5,5,5,5,4,4,4,3,6,5,5,5,4,5,6,6,6,51.73,1,2
+"P150","sustainability_frame ",37,"non-binary","high","food",4,5,4,,1,2,2,3,5,4,3,3,2,4,2,1,3,22.53,0,0
+"P151","scarcity_frame ",52,"M","high","services",3,4,4,2,6,4,4,5,3,3,2,5,5,5,3,3,4,30.6,0,2
+"P152","combined_frame",21,"Man","low","clothing",4,5,4,5,7,7,6,5,2,4,6,6,5,5,7,6,6,63.66,1,2
+"P153","combined_frame",37,"M","high","electronics",4,3,3,5,4,5,4,4,4,5,6,5,5,3,7,4,6,66.27,1,2
+"P154","sustainability_frame",25,"female","low","food",4,3,4,3,2,4,1,1,7,3,4,3,3,4,3,5,5,42.14,1,0
+"P155","sustainability_frame ",55,"Woman","medium","services",7,7,6,2,3,3,5,2,4,2,4,4,3,5,3,,4,36.74,1,1
+"P156","social_proof_frame ",63,"male","medium","services",3,2,5,4,4,3,5,4,3,4,5,4,4,4,7,5,5,66.97,1,3
+"P157","sustainability_frame",49,"man","medium","services",3,3,5,5,4,4,5,5,3,5,4,4,4,4,4,3,4,48.46,0,3
+"P158","sustainability_frame",44,"male","medium","services",4,4,3,2,,2,4,3,3,4,5,2,5,5,4,5,5,39.7,1,3
+"P159","scarcity_frame",30,"M","low","electronics",5,5,4,3,5,4,4,6,3,5,3,3,4,6,4,3,2,34.85,0,1
+"P160","scarcity_frame",21,"Woman","high","services",4,5,4,6,6,6,6,6,2,4,4,5,6,4,5,5,4,45.5,0,2
+"P161","social_proof_frame",48,"woman","low","clothing",4,4,5,4,4,5,4,3,5,4,6,,4,6,4,5,4,46.7,1,3
+"P162","sustainability_frame",51,"Woman","-99","electronics",2,4,1,5,4,3,7,7,3,6,5,,5,4,6,5,5,55.66,0,1
+"P163","sustainability_frame",55,"Man","medium","food",4,5,4,6,6,3,5,4,3,7,5,7,6,4,5,6,5,66.39,0,4
+"P164","combined_frame",43,"W","low","clothing",2,3,3,4,3,4,3,5,3,3,3,4,3,5,4,3,3,31.4,0,2
+"P165","control",42,"female","high","electronics",2,1,1,5,6,5,3,4,4,4,5,5,3,5,5,5,4,51.54,1,2
+"P166","control ",32,"W","high","food",4,5,4,3,2,3,3,3,7,3,4,2,4,3,5,5,5,53.26,1,3
+"P167","combined_frame",40,"female","low","electronics",2,3,1,4,5,5,3,4,5,4,5,3,4,5,5,,6,57.33,0,5
+"P168","scarcity_frame",49,"Male","medium","food",2,1,2,4,3,4,3,2,5,3,2,3,3,2,5,4,2,47.66,0,2
+"P169","combined_frame",36,"male","low","clothing",3,2,2,3,5,5,2,3,5,3,4,4,3,4,6,5,4,27.34,0,3
+"P170","sustainability_frame",36,"woman","low","clothing",4,4,3,4,4,3,4,2,4,4,4,3,3,4,4,4,4,44.04,0,2
+"P171","scarcity_frame",35,"Man","high","electronics",6,5,5,1,2,3,4,2,5,3,3,3,3,5,5,4,5,33.66,0,1
+"P172","combined_frame",31,"non-binary","high","food",4,2,3,2,3,4,5,5,3,6,7,6,5,2,6,6,3,66.58,0,2
+"P173","scarcity_frame",23,"Prefer not to say","high","electronics",4,4,4,3,4,3,2,3,5,2,5,3,4,4,5,3,3,28.79,0,2
+"P174","control",,"man","medium","food",4,3,5,2,2,2,3,4,4,4,4,5,3,5,4,5,3,47.12,0,1
+"P175","scarcity_frame",58,"Woman","-99","services",4,4,4,4,4,4,4,3,5,5,5,5,3,5,6,7,6,67.86,1,3
+"P176","social_proof_frame",22,"Woman","high","food",5,4,5,3,4,3,5,4,4,4,,5,4,5,3,4,2,42.35,1,1
+"P177","scarcity_frame",32,"Female","high","food",4,4,3,6,6,6,6,4,3,4,5,5,5,3,2,4,2,38.43,1,1
+"P178","social_proof_frame",,"Woman","-99","services",2,1,2,3,4,3,3,4,4,4,5,4,3,3,6,4,4,56.11,1,2
+"P179","social_proof_frame",31,"female","low","clothing",4,3,1,5,5,2,4,4,4,5,5,5,5,3,3,3,4,37.62,0,0
+"P180","combined_frame ",56,"male","high","food",4,6,7,6,6,5,3,3,4,5,5,4,2,4,3,4,3,25.51,1,4
+"P181","combined_frame",29,"woman","high","clothing",3,3,4,3,2,3,4,4,3,5,5,6,4,4,5,3,5,39.57,0,2
+"P182","sustainability_frame",47,"male","medium","clothing",6,6,5,,3,3,3,5,3,4,3,5,5,4,3,2,2,38.09,1,3
+"P183","combined_frame",40,"Female","medium","food",1,2,3,4,3,3,4,4,3,5,5,4,5,5,4,6,5,50.51,0,2
+"P184","control",33,"woman","medium","services",4,3,6,5,5,4,5,5,3,5,5,5,5,5,4,4,5,40.19,1,1
+"P185","control",18,"Male","medium","food",5,6,6,5,5,3,3,3,4,5,4,4,4,3,1,2,3,24.4,0,0
+"P186","combined_frame",59,"female","high","services",4,3,4,5,3,3,5,4,4,4,5,5,5,4,5,6,5,55.13,1,2
+"P187","scarcity_frame",33,"Woman","medium","electronics",3,4,4,3,3,4,4,4,3,3,5,4,4,4,4,3,4,44.03,0,4
+"P188","social_proof_frame",47,"Prefer not to say","medium","food",3,4,5,1,2,4,6,6,3,4,4,4,4,5,5,3,3,36.34,0,3
+"P189","sustainability_frame",24,"Female","medium","electronics",4,4,5,3,4,3,3,4,5,4,,2,5,4,4,4,5,50.87,1,2
+"P190","sustainability_frame ",32,"female","medium","services",4,4,2,3,3,3,4,5,5,4,6,5,6,4,6,5,6,52.22,1,3
+"P191","sustainability_frame",38,"Female","low","electronics",4,2,2,3,2,1,1,1,7,4,5,4,3,4,5,4,3,48.08,1,2
+"P192","social_proof_frame",39,"Woman","high","electronics",4,3,5,4,4,5,4,4,6,3,4,4,3,5,4,4,4,33.97,0,3
+"P193","sustainability_frame",38,"man","medium","services",6,5,6,5,6,5,5,4,5,5,4,4,3,4,4,3,4,36.33,1,1
+"P194","scarcity_frame ",30,"Man","high","food",5,4,5,3,3,2,4,3,,3,3,3,3,4,4,3,3,29.07,0,0
+"P195","sustainability_frame",40,"Female","medium","electronics",4,5,4,5,4,3,4,2,5,5,3,6,5,5,5,5,5,46.56,0,4
+"P196","sustainability_frame",18,"Woman","low","services",5,7,6,5,6,5,7,,3,6,6,7,4,5,6,7,6,32.27,0,3
+"P197","social_proof_frame",23,"W","medium","electronics",4,5,5,3,5,5,4,4,4,4,4,4,4,4,3,3,3,45.88,0,1
+"P198","combined_frame",38,"M","medium","clothing",2,3,3,5,6,6,3,1,7,7,6,6,5,5,5,7,6,53.12,1,2
+"P199","scarcity_frame",19,"Man","low","electronics",4,4,4,5,7,6,4,5,1,3,4,4,4,7,5,4,4,53.1,0,3
+"P200","combined_frame",42,"M","medium","services",4,2,4,3,3,2,6,5,4,7,5,6,5,4,3,4,3,56.51,0,2
+"P201","social_proof_frame",38,"Male","low","clothing",4,3,6,1,4,2,3,3,5,1,2,2,2,4,1,1,2,23.53,1,0
+"P202","sustainability_frame",47,"W","medium","clothing",5,4,3,1,2,2,4,4,4,4,4,2,4,4,1,,3,16.76,0,1
+"P203","combined_frame",47,"Non-binary","low","food",5,5,4,2,1,2,5,7,1,6,4,5,6,4,5,5,5,64.76,0,4
+"P204","scarcity_frame",40,"woman","medium","food",4,5,5,6,3,4,5,4,5,5,5,4,4,4,4,6,6,37.86,0,2
+"P205","scarcity_frame ",48,"male","low","food",3,4,4,5,6,7,3,3,6,4,5,5,3,5,4,3,4,44.47,1,3
+"P206","social_proof_frame",38,"Female","low","electronics",4,3,3,2,3,2,4,4,3,5,4,4,4,3,3,3,3,32.16,0,2
+"P207","social_proof_frame",46,"Man","medium","electronics",4,6,5,6,6,6,4,4,4,5,5,6,2,5,4,5,6,44.74,0,4
+"P208","sustainability_frame ",34,"male","medium","services",6,6,7,3,2,2,3,3,5,3,3,3,4,4,3,3,2,21.65,0,1
+"P209","sustainability_frame",31,"Male","high","food",4,4,4,4,3,3,3,3,6,4,4,4,2,5,4,5,4,36.43,1,3
+"P210","scarcity_frame",49,"Female","low","services",4,3,4,2,4,3,2,2,7,5,3,4,3,4,5,5,4,48.09,1,3
+"P211","social_proof_frame",24,"W","medium","clothing",4,4,3,2,2,2,5,4,4,4,,5,4,5,4,2,5,42.02,0,3
+"P212","combined_frame",36,"Prefer not to say","medium","clothing",4,4,4,5,5,5,4,3,4,6,6,7,5,4,5,3,4,51.1,0,1
+"P213","control",32,"W","medium","food",4,4,,6,4,6,2,1,5,1,2,1,4,5,3,6,4,29.89,0,3
+"P214","control",51,"female","medium","clothing",6,7,6,4,3,3,7,5,2,3,2,4,4,3,3,3,2,30.01,1,1
+"P215","social_proof_frame",40,"Prefer not to say","high","clothing",5,4,3,,1,4,4,4,5,3,2,3,4,4,4,5,4,38,0,4
+"P216","control ",42,"Man","high","clothing",4,4,4,2,3,3,2,3,7,1,4,5,1,2,3,3,2,14.08,0,1
+"P217","scarcity_frame",,"Female","medium","electronics",3,3,2,6,6,6,4,5,2,5,4,3,5,5,4,5,4,53.81,1,3
+"P218","control",60,"Woman","low","food",4,4,4,3,3,3,6,4,3,4,3,3,4,3,4,2,3,27.62,0,0
+"P219","scarcity_frame",43,"female","medium","services",4,5,6,1,3,5,4,6,2,4,5,3,4,3,5,4,5,46.21,0,3
+"P220","social_proof_frame",34,"M","medium","clothing",3,2,5,2,4,4,3,5,2,4,6,5,4,4,5,3,5,50.39,0,2
+"P221","scarcity_frame",42,"Male","high","electronics",2,3,3,4,3,4,3,6,4,4,3,4,3,5,2,3,4,20.3,0,0
+"P222","sustainability_frame",36,"man","medium","food",3,4,3,1,3,1,4,3,2,3,4,2,4,3,3,3,3,31.7,1,4
+"P223","social_proof_frame",18,"Man","medium","electronics",5,5,4,3,6,5,3,4,3,4,3,5,5,5,2,4,4,31.95,0,1
+"P224","control",19,"Woman","medium","clothing",6,5,6,3,5,3,2,3,6,3,3,5,4,4,2,3,3,25.95,0,1
+"P225","combined_frame",32,"Female","medium","clothing",5,5,5,4,4,5,3,4,3,5,5,6,5,5,5,6,6,47.64,1,1
+"P226","scarcity_frame",23,"man","medium","clothing",3,2,2,2,2,3,5,5,4,3,3,4,4,4,3,2,2,28.54,0,1
+"P227","scarcity_frame",32,"man","medium","electronics",5,7,7,4,3,4,3,2,5,2,4,5,3,5,2,4,3,22.25,0,0
+"P228","social_proof_frame",52,"male","low","food",4,,2,4,5,6,4,4,5,5,4,4,4,4,6,3,6,37.17,1,2
+"P229","social_proof_frame",52,"M","medium","electronics",3,4,5,5,5,6,4,5,4,5,3,3,5,5,4,6,5,44.64,0,2
+"P230","scarcity_frame",35,"male","medium","electronics",7,5,7,3,3,4,4,4,3,4,3,4,4,5,3,4,3,33.51,0,2
+"P231","control ",45,"W","medium","clothing",7,5,6,5,4,5,4,3,6,2,4,4,5,5,3,3,3,43.83,0,2
+"P232","sustainability_frame ",47,"Male","medium","food",3,4,3,3,3,3,5,5,3,6,5,5,3,4,3,4,4,33.35,0,1
+"P233","sustainability_frame",28,"female","low","services",2,6,5,4,,,3,5,4,6,6,6,5,6,5,6,5,51.03,0,1
+"P234","social_proof_frame",30,"Woman","low","electronics",5,5,4,6,4,3,4,6,4,5,5,4,4,5,5,4,4,39.9,0,3
+"P235","combined_frame",34,"Female","low","electronics",4,2,2,4,2,4,3,2,7,5,3,5,4,5,4,4,4,48.51,0,1
+"P236","sustainability_frame",30,"Man","medium","clothing",5,3,4,3,2,4,7,6,1,7,6,6,5,5,5,6,6,49.59,1,2
+"P237","scarcity_frame",44,"Man","low","clothing",6,5,4,4,4,4,6,5,2,5,5,4,5,4,4,4,4,42.15,0,4
+"P238","sustainability_frame",50,"male","high","services",4,2,4,3,3,3,3,3,4,4,3,4,3,4,3,3,2,38.64,0,1
+"P239","control",21,"Female","low","electronics",,2,3,2,2,2,5,5,2,6,7,6,4,4,7,7,6,74.75,1,4
+"P240","combined_frame ",56,"man","medium","food",3,4,2,5,4,5,5,5,3,5,6,6,5,4,4,5,4,42.04,0,4
+"P241","social_proof_frame",30,"man","medium","food",3,3,3,3,4,3,6,7,2,,5,5,6,5,7,6,5,57.15,0,2
+"P242","scarcity_frame",47,"Male","low","clothing",4,4,3,4,3,5,5,6,3,4,4,4,6,5,3,5,4,47.93,0,1
+"P243","combined_frame",41,"Female","medium","food",3,3,3,5,5,6,4,3,4,6,5,5,6,5,3,3,3,34.33,0,1
+"P244","scarcity_frame",44,"Man","medium","clothing",5,5,4,4,3,4,4,3,4,4,4,4,4,4,5,4,5,39.07,1,1
+"P245","combined_frame",39,"W","low","clothing",4,4,4,6,5,4,5,6,4,5,6,5,4,4,4,4,4,52.27,0,3
+"P246","social_proof_frame",38,"female","medium","services",1,2,2,3,2,3,2,2,6,3,5,5,3,3,6,4,4,38.89,0,1
+"P247","sustainability_frame",52,"Female","medium","electronics",4,,2,4,3,4,3,4,5,5,5,5,3,5,5,5,5,45.61,1,2
+"P248","sustainability_frame",33,"W","medium","electronics",4,3,3,7,7,7,2,2,7,5,6,5,5,5,5,6,5,43.81,1,2
+"P249","combined_frame",51,"Man","medium","services",,3,4,3,4,2,2,2,5,3,3,3,3,3,3,5,3,40.95,1,2
+"P250","social_proof_frame",40,"Woman","medium","food",2,2,2,4,5,2,4,4,4,4,4,4,5,5,3,6,7,63.38,1,2
+"P251","combined_frame",52,"M","low","electronics",6,5,4,3,2,2,3,4,6,5,4,4,3,4,6,5,5,46.28,1,3
+"P252","combined_frame",48,"Male","medium","food",4,4,3,3,4,4,1,1,7,4,3,5,3,4,,4,4,55.34,1,5
+"P253","sustainability_frame",54,"Male","medium","clothing",3,3,2,3,2,4,5,3,4,4,5,4,2,4,5,4,3,39.04,0,3
+"P254","control ",60,"female","medium","clothing",4,4,5,3,2,4,6,5,3,6,4,6,5,3,4,4,3,31.78,1,2
+"P255","control",37,"man","high","services",4,1,2,4,3,3,4,3,3,4,4,4,3,4,4,6,5,47.56,1,3
+"P256","combined_frame",51,"woman","medium","clothing",2,3,3,3,2,3,4,5,5,2,5,3,3,4,5,5,7,52.45,1,4
+"P257","sustainability_frame",26,"man","low","food",4,3,2,2,4,3,4,6,4,5,4,5,4,4,6,7,5,52.17,1,3
+"P258","control",29,"Non-binary","low","clothing",7,5,7,7,6,6,4,4,4,3,4,5,3,3,5,4,,33.05,0,3
+"P259","control",18,"female","low","food",5,6,6,5,5,4,4,2,3,4,5,6,5,3,4,3,3,37.04,0,2
+"P260","control",38,"woman","medium","services",3,4,5,5,4,4,5,5,2,3,4,4,6,5,4,2,5,32.84,0,4
+"P261","sustainability_frame ",25,"man","medium","food",4,5,4,6,6,7,4,3,3,4,5,4,5,4,5,6,5,51.77,1,4
+"P262","social_proof_frame",70,"Female","low","food",6,6,7,2,2,1,5,6,4,3,3,5,4,3,4,5,6,36.95,1,2
+"P263","scarcity_frame",18,"Male","high","food",2,1,1,2,4,4,7,7,3,3,2,3,5,4,4,6,6,42.25,0,2
+"P264","social_proof_frame",46,"Man","high","electronics",3,3,4,4,4,2,5,3,6,5,6,4,4,4,4,5,5,57.64,1,2
+"P265","social_proof_frame",25,"man","medium","services",4,3,4,3,5,3,3,3,6,5,5,5,3,4,6,7,7,57.65,1,3
+"P266","social_proof_frame",28,"M","high","clothing",3,3,3,1,2,1,4,4,3,3,4,4,4,2,3,3,3,22.18,1,0
+"P267","sustainability_frame",25,"M","high","electronics",2,3,4,4,6,5,4,4,3,5,5,6,4,5,6,7,5,65.59,0,4
+"P268","scarcity_frame",45,"male","medium","electronics",6,4,7,5,5,4,3,4,5,4,5,4,4,4,2,2,1,42.54,1,1
+"P269","sustainability_frame",39,"Man","medium","clothing",3,4,4,5,3,5,5,5,3,6,6,6,4,4,5,5,6,58.75,1,2
+"P270","sustainability_frame",39,"Woman","medium","food",2,3,3,4,6,3,4,2,3,7,6,7,5,5,6,4,6,42.64,0,4
+"P271","scarcity_frame",35,"man","medium","electronics",3,4,4,1,2,2,6,6,1,4,5,5,5,5,6,5,6,52.71,0,3
+"P272","sustainability_frame ",24,"male","high","services",5,4,3,1,1,1,4,5,3,5,4,4,2,3,2,3,3,17.11,0,1
+"P273","control ",18,"Female","low","food",2,1,1,1,1,3,4,3,4,4,4,2,2,3,4,5,4,30.72,0,2
+"P274","control",47,"Man","medium","food",3,4,4,2,3,2,4,5,3,4,3,4,4,3,5,5,5,49.61,1,2
+"P275","scarcity_frame",49,"male","medium","food",7,7,7,2,2,2,3,2,7,2,1,3,2,4,2,1,2,13.93,0,0
+"P276","scarcity_frame",56,"Woman","-99","clothing",6,7,5,3,3,3,2,2,7,5,3,3,3,3,3,3,4,24.57,1,4
+"P277","sustainability_frame",31,"Woman","medium","services",4,3,5,5,3,4,3,3,4,3,5,5,4,5,4,6,3,36.55,0,2
+"P278","control ",42,"M","high","food",2,4,4,3,4,5,1,3,6,2,3,1,2,5,2,4,3,29.44,0,2
+"P279","combined_frame",18,"NB","medium","clothing",4,6,5,2,2,2,2,2,5,3,4,3,5,4,4,4,3,33.4,0,1
+"P280","scarcity_frame",32,"Woman","medium","clothing",4,5,6,5,4,4,4,7,3,4,6,5,6,3,4,4,3,33.88,1,1
+"P281","combined_frame",59,"male","low","electronics",3,3,2,3,4,4,4,2,5,5,5,4,5,4,3,4,6,62.4,0,2
+"P282","sustainability_frame ",48,"M","low","clothing",5,4,5,2,2,2,2,2,6,4,4,5,4,4,3,4,4,52.33,0,0
+"P283","scarcity_frame",40,"woman","medium","clothing",5,3,4,2,3,2,4,5,2,4,3,3,4,6,5,4,5,39.07,0,3
+"P284","combined_frame",46,"NB","low","services",6,5,6,3,3,1,4,2,3,6,5,4,4,3,5,3,5,38.86,0,2
+"P285","combined_frame ",43,"Prefer not to say","medium","food",7,6,4,4,5,4,4,5,4,4,2,4,4,3,4,4,4,30.45,0,1
+"P286","social_proof_frame ",35,"man","medium","clothing",3,1,4,5,3,4,3,2,5,2,2,3,4,4,2,3,3,32.18,0,2
+"P287","sustainability_frame ",20,"woman","medium","food",2,1,2,5,3,5,7,5,4,7,6,5,6,4,6,6,6,67.99,1,3
+"P288","sustainability_frame",18,"Female","medium","food",5,6,5,6,5,7,5,4,2,5,4,4,4,4,5,4,4,32.75,1,2
+"P289","scarcity_frame ",46,"woman","-99","electronics",2,3,3,5,7,,6,5,3,6,5,6,5,3,6,5,5,49.08,1,3
+"P290","scarcity_frame",39,"male","medium","services",2,3,2,4,3,5,4,4,4,4,4,3,5,5,4,4,3,31.03,0,3
+"P291","scarcity_frame",18,"Male","medium","services",3,4,4,2,4,3,3,5,3,2,2,2,4,4,4,4,5,33.93,0,2
+"P292","sustainability_frame",62,"man","medium","clothing",3,3,3,5,4,5,4,2,4,5,5,4,5,3,5,4,5,52.5,1,3
+"P293","scarcity_frame",22,"W","medium","electronics",3,2,1,3,3,3,4,4,5,3,3,3,3,6,4,4,5,35.61,0,2
+"P294","control ",18,"Prefer not to say","medium","food",5,5,3,5,5,5,3,5,3,3,4,4,5,4,3,4,4,55.16,1,1
+"P295","social_proof_frame",18,"Female","medium","clothing",4,4,4,4,4,3,4,3,6,6,4,4,4,5,5,4,6,56.49,0,3
+"P296","control",22,"Female","high","food",4,4,6,4,5,4,7,4,2,3,3,3,2,5,3,2,3,20.58,0,2
+"P297","social_proof_frame",40,"Man","medium","electronics",4,2,2,3,5,4,4,5,4,5,6,7,3,3,5,4,5,32.09,0,2
+"P298","scarcity_frame",21,"NB","medium","electronics",5,5,4,3,3,4,5,3,6,,5,4,5,5,6,3,4,52.12,1,1
+"P299","combined_frame",40,"M","high","clothing",5,5,5,5,5,5,3,1,5,7,7,5,3,4,6,6,5,53.77,1,3
+"P300","combined_frame",39,"Man","high","electronics",5,3,4,1,1,2,2,2,6,3,3,3,3,4,4,4,4,35.68,0,1

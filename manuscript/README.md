@@ -1,12 +1,26 @@
-# `manuscript/` — your LaTeX paper
+# `manuscript/` — paper outputs
 
-The static, journal-ready version of your work. Lives in the same repo as the code so the paper, the analysis, and the data are versioned together.
+The static, paper-style version of your work. Two routes land here:
+
+1. **Auto-rendered from the walkthrough.** `quarto render` produces
+   `output/walkthrough.pdf` and `output/walkthrough.docx` from
+   [`../reports/00_walkthrough.qmd`](../reports/00_walkthrough.qmd). A
+   post-render hook ([`../scripts/post_render.R`](../scripts/post_render.R))
+   moves them out of `docs/` and into here. **This is the easy path.**
+2. **Hand-written LaTeX in [`main.tex`](main.tex).** Use this when you need
+   journal-specific formatting (a class file, a specific bibliography
+   style, custom title pages). The walkthrough's figures in
+   [`../figures/`](../figures/) and the shared `.bib` work the same way.
+
+Pick whichever fits the destination. Internal report or working PDF → the
+walkthrough route. Journal submission → hand-written LaTeX, often via
+Overleaf.
 
 ## Files
 
-- `main.tex` — the paper itself.
-- `references.bib` — symlink or copy from [`../references/references.bib`](../references/references.bib). One source of truth.
-- `output/` — rendered PDFs. Committed so reviewers can read without compiling.
+- `main.tex` — hand-written paper.
+- `output/` — rendered PDFs and DOCX (from both routes). Committed so
+  reviewers can read without compiling.
 
 ## Render locally
 

@@ -1,5 +1,5 @@
 ---
-title: "Project overview"
+title: "Your project — overview"
 author: "Your Name"
 date: today
 format:
@@ -7,7 +7,6 @@ format:
     toc: true
     code-fold: true
 bibliography: ../references/references.bib
-# csl: ../references/apa.csl   # uncomment once you've dropped a CSL file in references/
 execute:
   warning: false
   message: false
@@ -15,24 +14,34 @@ execute:
 
 ```{r setup}
 source(here::here("R", "01_setup.R"))
+clean <- readRDS(processed_path("consumer_clean.rds"))
 ```
 
 # What this report does
 
 A one-paragraph description of what you're analysing and why.
 
-# Data
+This is a **starter template**. The full walkthrough lives in
+[`00_walkthrough.qmd`](00_walkthrough.qmd). Use this file as a blank canvas
+for your own report.
+
+# Quick look at the data
 
 ```{r}
-# data <- readr::read_csv(data_path("consumer_data.csv"))
-# head(data)
+dplyr::glimpse(clean)
 ```
 
-# Results
+# A first plot
 
-Cite with `@smith2020` like this: as discussed by @smith2020, …
+```{r}
+#| fig-cap: "Purchase intention by condition."
+plot_pi_by_condition(clean)
+```
 
-# References
+# Notes
+
+Cite with `[@wickham2023]` like this: see @wickham2023 for the canonical
+intro.
 
 ::: {#refs}
 :::
