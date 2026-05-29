@@ -1,8 +1,6 @@
 # The Science Repository
 
-A template for a modern, reproducible science project in R. Fork this, rename it, and start working.
-
-This is the Day 1 scaffold for the R workshop. By the end of Day 3, the same structure becomes a publishing pipeline (Quarto + LaTeX + GitHub Pages + Shiny) that you can drive with an LLM assistant inside VS Code.
+A template for a modern, reproducible science project in R (easily extendable to Python). Fork this, rename it, and start filling it up with your own data and coding pipelines.
 
 ---
 
