@@ -1,0 +1,15 @@
+# The manuscript section recipes render to LaTeX *fragments* (body only, via
+# _fragment.tex) and land in renders/manuscript/generated/ — next to the
+# hand-written prose in renders/manuscript/sections/, but in their own folder so
+# a render can never overwrite prose.
+project:
+  output-dir: ../../renders/manuscript/generated
+
+format:
+  latex:
+    template: _fragment.tex
+
+execute:
+  echo: false
+  warning: false
+  message: false

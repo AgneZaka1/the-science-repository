@@ -10,7 +10,7 @@ shiny::runApp("shiny/")
 
 ## Structure
 
-- `app.R` — UI + server in one file. Fine for small apps. Split into `ui.R` / `server.R` when it grows past ~300 lines.
+- `app.R` — UI + server in one file. It runs `source(here::here("R", "01_setup.R"))` and calls `get_clean_consumer_data()` + `plot_pi_by_condition()`, so it shares the engine with the website and the paper — no duplicated logic. Split into `ui.R` / `server.R` when it grows past ~300 lines.
 - `data/` — mock data the app ships with. **Use synthetic data only** unless you control who can reach the deployed app.
 
 ## Deploy

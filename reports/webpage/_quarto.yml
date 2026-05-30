@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: ../../renders/webpage     # the site lands in renders/webpage/
+
+website:
+  title: "The Science Repository"
+  description: "A reproducible consumer decision-making analysis in R — workshop edition."
+  reader-mode: true
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/your-username/the-science-repository
+        aria-label: GitHub
+  sidebar:
+    style: floating
+    contents:
+      - href: index.qmd
+        text: Overview
+      - section: "Analysis"
+        contents:
+          - href: 01-data-preparation.qmd
+            text: "1 · Data preparation"
+          - href: 02-descriptives.qmd
+            text: "2 · Descriptives"
+          - href: 03-analysis.qmd
+            text: "3 · Analysis"
+      - href: about.qmd
+        text: About
+
+# One shared bibliography for the whole repo (also used by the manuscript).
+bibliography: ../../references/references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: show
+    code-tools: true
+
+execute:
+  warning: false
+  message: false
+  echo: true

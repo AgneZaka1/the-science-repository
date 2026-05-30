@@ -1,0 +1,85 @@
+---
+title: "3 · Analysis"
+subtitle: "Main effect, mediation, and moderation"
+date: today
+---
+
+```{r setup}
+#| include: false
+source(file.path(rprojroot::find_root(rprojroot::is_git_root), "R", "01_setup.R"))
+clean <- get_clean_consumer_data()
+```
+
+Three questions, three models — all defined once in
+[`R/functions/analysis.R`](https://github.com/your-username/the-science-repository/blob/main/R/functions/analysis.R)
+and reused by the [manuscript](https://github.com/your-username/the-science-repository/tree/main/reports/manuscript).
+
+## Main effect: does the frame move purchase intention?
+
+```{r}
+#| label: tbl-main
+#| tbl-cap: "Main model: condition predicting purchase intention (with covariates)."
+fit_main <- fit_main_model(clean)
+knitr::kable(broom::tidy(fit_main, conf.int = TRUE), digits = 3)
+```
+
+The `combined_frame` coefficient is the one to watch — a clear bump over the
+`control` reference.
+
+## Mediation: does perceived value carry the effect?
+
+Three regressions tell the conceptual mediation story [@baron1986; @hayes2017]:
+
+```{r}
+#| label: tbl-mediation
+med <- fit_mediation_models(clean)
+dplyr::bind_rows(
+  total       = broom::tidy(med$total, conf.int = TRUE),
+  mediator    = broom::tidy(med$a,     conf.int = TRUE),
+  outcome_w_m = broom::tidy(med$b,     conf.int = TRUE),
+  .id = "model"
+) |>
+  dplyr::filter(grepl("condition|perceived_value", term)) |>
+  knitr::kable(digits = 3)
+```
+
+Read it like this: the condition coefficients shrink from `total` to
+`outcome_w_m`, and `perceived_value` is a strong predictor — the mediation
+signature.
+
+## Moderation: for whom is the frame weaker?
+
+```{r}
+#| label: tbl-moderation
+fit_mod <- fit_moderation_model(clean)
+broom::tidy(fit_mod, conf.int = TRUE) |>
+  dplyr::filter(grepl("condition|price", term)) |>
+  knitr::kable(digits = 3)
+```
+
+```{r}
+#| label: fig-moderation
+#| fig-cap: "Condition × price sensitivity. The combined-frame boost shrinks for high-price-sensitive shoppers."
+#| fig-width: 7
+#| fig-height: 4
+plot_moderation(clean)
+```
+
+## What got reused, not copied
+
+Every result on this page came from somewhere shared:
+
+| On this page | Defined in |
+| --- | --- |
+| `fit_main_model()`, `fit_mediation_models()`, `fit_moderation_model()` | [`R/functions/analysis.R`](https://github.com/your-username/the-science-repository/blob/main/R/functions/analysis.R) |
+| `plot_moderation()` and the other plots | [`R/functions/plotting.R`](https://github.com/your-username/the-science-repository/blob/main/R/functions/plotting.R) |
+| The cleaned data | written by [page 1](01-data-preparation.qmd), read here |
+| Citations `[@baron1986]` | [`references/references.bib`](https://github.com/your-username/the-science-repository/blob/main/references/references.bib) |
+
+Rename `purchase_intention` in `R/01_setup.R` and `R/functions/data_loading.R`
+— two files — and this website, the Shiny app, and the manuscript all follow.
+
+## References
+
+::: {#refs}
+:::

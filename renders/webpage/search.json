@@ -1,0 +1,246 @@
+[
+  {
+    "objectID": "02-descriptives.html",
+    "href": "02-descriptives.html",
+    "title": "2 · Descriptives",
+    "section": "",
+    "text": "This page reads the cleaned dataset produced by 1 · Data preparation and does two things every analysis should do before any model: describe the sample and plot the patterns.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "2 · Descriptives"
+    ]
+  },
+  {
+    "objectID": "02-descriptives.html#outcomes-by-condition",
+    "href": "02-descriptives.html#outcomes-by-condition",
+    "title": "2 · Descriptives",
+    "section": "Outcomes by condition",
+    "text": "Outcomes by condition\ndescriptives_by_condition() lives in R/functions/analysis.R and is shared with the manuscript, so the numbers can’t drift between the two.\n\n\nCode\nknitr::kable(descriptives_by_condition(clean), digits = 2)\n\n\n\n\nTable 1: Means and SDs of the key outcomes, by experimental condition.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncondition\nn\nmean_pi\nsd_pi\nmean_pv\nsd_pv\nmean_wtp\nprop_choice_yes\n\n\n\n\ncontrol\n50\n4.03\n1.13\n4.09\n1.07\n40.12\n0.40\n\n\nscarcity_frame\n75\n4.20\n1.01\n4.12\n1.07\n43.05\n0.35\n\n\nsustainability_frame\n67\n4.35\n1.06\n4.51\n1.04\n43.83\n0.52\n\n\nsocial_proof_frame\n53\n4.28\n1.19\n4.25\n0.93\n44.35\n0.40\n\n\ncombined_frame\n55\n4.60\n0.96\n4.88\n1.04\n48.55\n0.47\n\n\n\n\n\n\n\n\nThe combined_frame row already stands out on mean_pi (purchase intention). The models on the next page test whether that difference holds up.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "2 · Descriptives"
+    ]
+  },
+  {
+    "objectID": "02-descriptives.html#look-first",
+    "href": "02-descriptives.html#look-first",
+    "title": "2 · Descriptives",
+    "section": "Look first",
+    "text": "Look first\n\n\nCode\nplot_pi_by_condition(clean)\n\n\n\n\n\n\n\n\nFigure 1: Purchase intention by condition. Red points are condition means; bars are 95% CIs.\n\n\n\n\n\nWhy might combined_frame do better? The scatter below is the clue: the frames also raise perceived value, and perceived value tracks purchase intention closely — the setup for a mediation story.\n\n\nCode\nplot_mediation_scatter(clean)\n\n\n\n\n\n\n\n\nFigure 2: Perceived value (the mediator) versus purchase intention, coloured by condition.\n\n\n\n\n\nNext: 3 · Analysis.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "2 · Descriptives"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Science Repository",
+    "section": "",
+    "text": "This website is the transparent, click-through version of the whole project: the code, the data cleaning, the figures, the tables, and the reasoning — all rendered from one git repository. It is built with Quarto from the sources in reports/webpage/, and every number you see was produced by the shared R engine in R/.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#the-study-in-one-paragraph",
+    "href": "index.html#the-study-in-one-paragraph",
+    "title": "The Science Repository",
+    "section": "The study in one paragraph",
+    "text": "The study in one paragraph\nThree hundred (simulated) shoppers each saw a product framed by one of five messages — a plain control, plus scarcity, sustainability, social_proof, and a combined frame — and then reported their attitudes and a hypothetical purchase decision. We ask three questions:\n\nDoes the message frame raise purchase intention?\nIs that effect mediated by how much value people perceive?\nIs it moderated by how price-sensitive they are?",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#read-it-in-order",
+    "href": "index.html#read-it-in-order",
+    "title": "The Science Repository",
+    "section": "Read it in order",
+    "text": "Read it in order\nThe analysis is split into three short pages, each one stage of the pipeline:\n\n\n\nPage\nWhat it does\n\n\n\n\n1 · Data preparation\nLoad the raw CSV, inspect the mess, clean it, and save the tidy dataset other pages read.\n\n\n2 · Descriptives\nSummarise the sample and look at the patterns before modelling.\n\n\n3 · Analysis\nThe main effect, the mediation, and the moderation models.\n\n\n\nThe About page holds the reproducibility, data-protection, and AI-use statements.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-site-is-built",
+    "href": "index.html#how-this-site-is-built",
+    "title": "The Science Repository",
+    "section": "How this site is built",
+    "text": "How this site is built\nNothing here is copy-pasted. Each page calls the same functions from R/ and reads the same cleaned dataset:\ngit clone https://github.com/your-username/the-science-repository\ncd the-science-repository\nR -e 'renv::restore()'        # install the exact package versions\nquarto render reports/webpage # builds this site into renders/webpage/\nThat is the workshop’s core idea: the R/ folder is the single source of truth for the numbers; this website and the journal manuscript are just two ways of presenting them. See the project README for the full folder map.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "01-data-preparation.html",
+    "href": "01-data-preparation.html",
+    "title": "1 · Data preparation",
+    "section": "",
+    "text": "This page is the first stage of the pipeline. It loads the raw data, shows the realistic mess inside it, cleans it with the shared functions in R/functions/data_loading.R, and saves the result to data/processed/. Every page after this one just reads that saved file — it never re-does the cleaning.\nThe rule for this project: nothing is redefined in a report. The cleaning logic lives in R/; this page only source()s it and tells the story.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "1 · Data preparation"
+    ]
+  },
+  {
+    "objectID": "01-data-preparation.html#load-the-raw-data",
+    "href": "01-data-preparation.html#load-the-raw-data",
+    "title": "1 · Data preparation",
+    "section": "Load the raw data",
+    "text": "Load the raw data\nload_raw_consumer_data() reads from data/mock/ (or data/raw/, depending on DATA_MODE — see R/01_setup.R).\n\n\nCode\nraw &lt;- load_raw_consumer_data(\"consumer_data_raw.csv\")\ndplyr::glimpse(raw)\n\n\nRows: 300\nColumns: 26\n$ ParticipantID          &lt;chr&gt; \"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\",…\n$ Condition              &lt;chr&gt; \"scarcity_frame\", \"combined_frame\", \"social_pro…\n$ Age                    &lt;dbl&gt; 36, 63, 41, 51, 38, 46, 46, 43, 40, 27, 58, 58,…\n$ Gender                 &lt;chr&gt; \"female\", \"M\", \"Female\", \"non-binary\", \"W\", \"ma…\n$ IncomeGroup            &lt;chr&gt; \"low\", \"low\", \"medium\", \"medium\", \"medium\", \"me…\n$ ProductCategory        &lt;chr&gt; \"food\", \"clothing\", \"services\", \"electronics\", …\n$ ps_1                   &lt;dbl&gt; 5, 2, 5, 5, 2, 4, 6, 4, 4, 3, 3, 4, 6, 2, 2, 5,…\n$ ps_2                   &lt;dbl&gt; 7, 4, 5, 4, 3, 5, 6, 5, 5, 1, 3, 2, 6, 4, 2, 2,…\n$ ps_3                   &lt;dbl&gt; 7, 3, 3, 4, 3, 4, 5, 3, 4, 2, 5, 3, 4, 5, 3, 5,…\n$ sc_1                   &lt;dbl&gt; 3, 4, 6, 3, 4, 4, 4, 4, 4, 5, 5, 4, 6, 4, 4, 4,…\n$ sc_2                   &lt;dbl&gt; 3, 4, 6, 2, 4, 4, 3, 4, 6, 4, 5, 4, 7, 4, 5, 3,…\n$ sc_3                   &lt;dbl&gt; 3, 4, 5, 5, 4, 4, 4, 5, 4, 5, 5, 4, 6, 5, 6, 4,…\n$ bt_1                   &lt;dbl&gt; 6, 4, 2, 4, NA, 3, 6, 4, 4, 3, 3, 6, 7, 2, 4, 6…\n$ bt_2                   &lt;dbl&gt; 6, 4, 1, 3, 5, 3, 6, 4, 5, 1, 4, 4, 5, 4, 3, 5,…\n$ bt_3_r                 &lt;dbl&gt; 2, 2, 5, 6, 1, 4, 3, 3, 5, 5, 5, 3, 1, 5, 5, 4,…\n$ pv_1                   &lt;dbl&gt; 4, 5, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 5, 3, 4, 5,…\n$ pv_2                   &lt;dbl&gt; 5, 3, 5, 4, 4, 2, 3, 4, 4, 5, 4, 5, 6, 3, 5, 4,…\n$ pv_3                   &lt;dbl&gt; 5, 4, 2, 3, 3, 3, 3, 4, 5, 3, 5, 3, 6, 4, 5, 4,…\n$ perceived_quality      &lt;dbl&gt; 6, 3, 3, 4, 4, 3, 5, 4, 4, 3, 4, 4, 5, 2, 4, 4,…\n$ perceived_social_norm  &lt;dbl&gt; 4, 5, 5, 4, 5, 5, 6, 4, 3, 4, 5, 4, 6, 2, 5, 5,…\n$ pi_1                   &lt;dbl&gt; 3, 4, 4, 2, NA, 5, 4, 3, 3, 3, 2, 5, 4, 5, 5, 5…\n$ pi_2                   &lt;dbl&gt; 2, 4, 4, 2, 3, 4, 4, 4, 2, 4, 4, 3, 4, 3, 4, 5,…\n$ pi_3                   &lt;dbl&gt; 5, 3, 4, 4, 3, 5, 4, 3, 3, 3, 3, 5, 5, 5, 6, 5,…\n$ willingness_to_pay     &lt;dbl&gt; 35.31, 39.74, 39.68, 44.55, 23.99, 48.11, 41.49…\n$ choice                 &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1,…\n$ number_products_bought &lt;dbl&gt; 2, 4, 3, 1, 3, 2, 0, 2, 0, 4, 1, 2, 4, 1, 2, 3,…\n\n\nThe raw file is deliberately messy — mixed-case column names, trailing whitespace, -99 missing codes, inconsistent gender labels, a reverse-scored item. The full inventory is in the codebook.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "1 · Data preparation"
+    ]
+  },
+  {
+    "objectID": "01-data-preparation.html#clean-it",
+    "href": "01-data-preparation.html#clean-it",
+    "title": "1 · Data preparation",
+    "section": "Clean it",
+    "text": "Clean it\nclean_consumer_data() does all of the repair in one place: standardises names with janitor::clean_names(), trims whitespace, recodes gender, turns -99 into NA, reverse-scores bt_3_r, and averages each item set into a scale score.\n\n\nCode\nclean &lt;- clean_consumer_data(raw)\ndplyr::glimpse(dplyr::select(clean, participant_id, condition, gender,\n                             income_group, purchase_intention,\n                             perceived_value, price_sensitivity))\n\n\nRows: 300\nColumns: 7\n$ participant_id     &lt;chr&gt; \"P001\", \"P002\", \"P003\", \"P004\", \"P005\", \"P006\", \"P0…\n$ condition          &lt;fct&gt; scarcity_frame, combined_frame, social_proof_frame,…\n$ gender             &lt;fct&gt; woman, man, woman, non_binary, woman, man, man, wom…\n$ income_group       &lt;ord&gt; low, low, medium, medium, medium, medium, medium, h…\n$ purchase_intention &lt;dbl&gt; 3.333333, 3.666667, 4.000000, 2.666667, 3.000000, 4…\n$ perceived_value    &lt;dbl&gt; 4.666667, 4.000000, 3.333333, 3.333333, 3.666667, 2…\n$ price_sensitivity  &lt;dbl&gt; 6.333333, 3.000000, 4.333333, 4.333333, 2.666667, 4…\n\n\nA quick check that the conditions and the key scales survived cleaning:\n\n\nCode\nlevels(clean$condition)\n\n\n[1] \"control\"              \"scarcity_frame\"       \"sustainability_frame\"\n[4] \"social_proof_frame\"   \"combined_frame\"      \n\n\nCode\nsapply(c(\"purchase_intention\", \"perceived_value\", \"price_sensitivity\",\n         \"brand_trust\"),\n       \\(v) sum(is.na(clean[[v]])))\n\n\npurchase_intention    perceived_value  price_sensitivity        brand_trust \n                 0                  0                  0                  0",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "1 · Data preparation"
+    ]
+  },
+  {
+    "objectID": "01-data-preparation.html#save-it-for-the-rest-of-the-site",
+    "href": "01-data-preparation.html#save-it-for-the-rest-of-the-site",
+    "title": "1 · Data preparation",
+    "section": "Save it for the rest of the site",
+    "text": "Save it for the rest of the site\nThis is the one place that writes the cleaned dataset. Descriptives and analysis read it back with get_clean_consumer_data() — so the cleaning runs once, not on every page.\n\n\nCode\ndir.create(processed_path(), recursive = TRUE, showWarnings = FALSE)\nsaveRDS(clean, processed_path(\"consumer_clean.rds\"))\n\n\ndata/processed/ is gitignored, so the cleaned file never leaves your machine — it is rebuilt from the (committed) mock data whenever the site renders.\nNext: 2 · Descriptives.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "1 · Data preparation"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html",
+    "href": "03-analysis.html",
+    "title": "3 · Analysis",
+    "section": "",
+    "text": "Three questions, three models — all defined once in R/functions/analysis.R and reused by the manuscript.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html#main-effect-does-the-frame-move-purchase-intention",
+    "href": "03-analysis.html#main-effect-does-the-frame-move-purchase-intention",
+    "title": "3 · Analysis",
+    "section": "Main effect: does the frame move purchase intention?",
+    "text": "Main effect: does the frame move purchase intention?\n\n\nCode\nfit_main &lt;- fit_main_model(clean)\nknitr::kable(broom::tidy(fit_main, conf.int = TRUE), digits = 3)\n\n\n\n\nTable 1: Main model: condition predicting purchase intention (with covariates).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n4.085\n0.254\n16.111\n0.000\n3.586\n4.584\n\n\nconditionscarcity_frame\n0.140\n0.204\n0.685\n0.494\n-0.262\n0.541\n\n\nconditionsustainability_frame\n0.311\n0.206\n1.508\n0.133\n-0.095\n0.716\n\n\nconditionsocial_proof_frame\n0.240\n0.218\n1.102\n0.271\n-0.189\n0.669\n\n\nconditioncombined_frame\n0.582\n0.218\n2.675\n0.008\n0.154\n1.010\n\n\nage\n-0.001\n0.006\n-0.180\n0.858\n-0.012\n0.010\n\n\ngenderman\n-0.032\n0.137\n-0.233\n0.816\n-0.301\n0.237\n\n\ngendernon_binary\n-0.465\n0.342\n-1.361\n0.175\n-1.137\n0.208\n\n\ngenderprefer_not_to_say\n0.124\n0.297\n0.418\n0.676\n-0.460\n0.709\n\n\nincome_group.L\n-0.175\n0.130\n-1.353\n0.177\n-0.431\n0.080\n\n\nincome_group.Q\n0.021\n0.104\n0.201\n0.841\n-0.184\n0.226\n\n\n\n\n\n\n\n\nThe combined_frame coefficient is the one to watch — a clear bump over the control reference.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html#mediation-does-perceived-value-carry-the-effect",
+    "href": "03-analysis.html#mediation-does-perceived-value-carry-the-effect",
+    "title": "3 · Analysis",
+    "section": "Mediation: does perceived value carry the effect?",
+    "text": "Mediation: does perceived value carry the effect?\nThree regressions tell the conceptual mediation story (Baron and Kenny 1986; Hayes 2017):\n\n\nCode\nmed &lt;- fit_mediation_models(clean)\ndplyr::bind_rows(\n  total       = broom::tidy(med$total, conf.int = TRUE),\n  mediator    = broom::tidy(med$a,     conf.int = TRUE),\n  outcome_w_m = broom::tidy(med$b,     conf.int = TRUE),\n  .id = \"model\"\n) |&gt;\n  dplyr::filter(grepl(\"condition|perceived_value\", term)) |&gt;\n  knitr::kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodel\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\ntotal\nconditionscarcity_frame\n0.140\n0.204\n0.685\n0.494\n-0.262\n0.541\n\n\ntotal\nconditionsustainability_frame\n0.311\n0.206\n1.508\n0.133\n-0.095\n0.716\n\n\ntotal\nconditionsocial_proof_frame\n0.240\n0.218\n1.102\n0.271\n-0.189\n0.669\n\n\ntotal\nconditioncombined_frame\n0.582\n0.218\n2.675\n0.008\n0.154\n1.010\n\n\nmediator\nconditionscarcity_frame\n0.045\n0.196\n0.227\n0.820\n-0.342\n0.431\n\n\nmediator\nconditionsustainability_frame\n0.483\n0.199\n2.433\n0.016\n0.092\n0.874\n\n\nmediator\nconditionsocial_proof_frame\n0.196\n0.210\n0.934\n0.351\n-0.217\n0.609\n\n\nmediator\nconditioncombined_frame\n0.849\n0.210\n4.050\n0.000\n0.436\n1.262\n\n\noutcome_w_m\nconditionscarcity_frame\n0.119\n0.183\n0.650\n0.516\n-0.242\n0.480\n\n\noutcome_w_m\nconditionsustainability_frame\n0.090\n0.187\n0.483\n0.630\n-0.278\n0.459\n\n\noutcome_w_m\nconditionsocial_proof_frame\n0.151\n0.196\n0.767\n0.443\n-0.236\n0.537\n\n\noutcome_w_m\nconditioncombined_frame\n0.195\n0.201\n0.968\n0.334\n-0.202\n0.591\n\n\noutcome_w_m\nperceived_value\n0.456\n0.056\n8.154\n0.000\n0.346\n0.566\n\n\n\n\n\nRead it like this: the condition coefficients shrink from total to outcome_w_m, and perceived_value is a strong predictor — the mediation signature.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html#moderation-for-whom-is-the-frame-weaker",
+    "href": "03-analysis.html#moderation-for-whom-is-the-frame-weaker",
+    "title": "3 · Analysis",
+    "section": "Moderation: for whom is the frame weaker?",
+    "text": "Moderation: for whom is the frame weaker?\n\n\nCode\nfit_mod &lt;- fit_moderation_model(clean)\nbroom::tidy(fit_mod, conf.int = TRUE) |&gt;\n  dplyr::filter(grepl(\"condition|price\", term)) |&gt;\n  knitr::kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\nconditionscarcity_frame\n0.090\n0.197\n0.455\n0.649\n-0.298\n0.477\n\n\nconditionsustainability_frame\n0.270\n0.199\n1.353\n0.177\n-0.123\n0.662\n\n\nconditionsocial_proof_frame\n0.091\n0.212\n0.431\n0.667\n-0.326\n0.509\n\n\nconditioncombined_frame\n0.475\n0.210\n2.257\n0.025\n0.061\n0.889\n\n\nprice_sensitivity_c\n-0.488\n0.120\n-4.076\n0.000\n-0.723\n-0.252\n\n\nconditionscarcity_frame:price_sensitivity_c\n0.291\n0.155\n1.885\n0.060\n-0.013\n0.596\n\n\nconditionsustainability_frame:price_sensitivity_c\n0.276\n0.165\n1.676\n0.095\n-0.048\n0.600\n\n\nconditionsocial_proof_frame:price_sensitivity_c\n0.242\n0.164\n1.472\n0.142\n-0.082\n0.565\n\n\nconditioncombined_frame:price_sensitivity_c\n0.354\n0.170\n2.076\n0.039\n0.018\n0.689\n\n\n\n\n\n\n\nCode\nplot_moderation(clean)\n\n\n\n\n\n\n\n\nFigure 1: Condition × price sensitivity. The combined-frame boost shrinks for high-price-sensitive shoppers.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html#what-got-reused-not-copied",
+    "href": "03-analysis.html#what-got-reused-not-copied",
+    "title": "3 · Analysis",
+    "section": "What got reused, not copied",
+    "text": "What got reused, not copied\nEvery result on this page came from somewhere shared:\n\n\n\nOn this page\nDefined in\n\n\n\n\nfit_main_model(), fit_mediation_models(), fit_moderation_model()\nR/functions/analysis.R\n\n\nplot_moderation() and the other plots\nR/functions/plotting.R\n\n\nThe cleaned data\nwritten by page 1, read here\n\n\nCitations [@baron1986]\nreferences/references.bib\n\n\n\nRename purchase_intention in R/01_setup.R and R/functions/data_loading.R — two files — and this website, the Shiny app, and the manuscript all follow.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "03-analysis.html#references",
+    "href": "03-analysis.html#references",
+    "title": "3 · Analysis",
+    "section": "References",
+    "text": "References\n\n\nBaron, Reuben M., and David A. Kenny. 1986. “The Moderator-Mediator Variable Distinction in Social Psychological Research: Conceptual, Strategic, and Statistical Considerations.” Journal of Personality and Social Psychology 51 (6): 1173–82. https://doi.org/10.1037/0022-3514.51.6.1173.\n\n\nHayes, Andrew F. 2017. Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach. 2nd ed. New York, NY: Guilford Press.",
+    "crumbs": [
+      "Home",
+      "Analysis",
+      "3 · Analysis"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this project",
+    "section": "",
+    "text": "This page collects the statements that belong with any shared analysis. Adapt the wording to your own project before you publish.",
+    "crumbs": [
+      "Home",
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#reproducibility",
+    "href": "about.html#reproducibility",
+    "title": "About this project",
+    "section": "Reproducibility",
+    "text": "Reproducibility\nAll analyses were conducted in R using a structured project. Data preparation, models, figures, and tables are generated by the reports in reports/ from the shared functions in R/; the R environment is pinned with renv. Anyone can reproduce this site from a clean clone:\nR -e 'renv::restore()'\nquarto render reports/webpage\nBecause every page reads the same cleaned dataset and calls the same functions, changing a model in one place updates this website and the journal manuscript on the next render. Nothing is copy-pasted between them.",
+    "crumbs": [
+      "Home",
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#data-protection",
+    "href": "about.html#data-protection",
+    "title": "About this project",
+    "section": "Data protection",
+    "text": "Data protection\nThis project ships simulated teaching data (data/mock/). No real participant data is included in the repository. Real data, if used, lives in data/raw/ and data/processed/, which are gitignored and never committed — so the analysis is fully shareable while the underlying data stays private. Output tables and figures are checked for identifiability before sharing.\n\nScripts can usually be shared. Raw data usually cannot. Outputs depend on identifiability.",
+    "crumbs": [
+      "Home",
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#ai-use",
+    "href": "about.html#ai-use",
+    "title": "About this project",
+    "section": "AI use",
+    "text": "AI use\nAI tools were used to support code explanation, debugging, documentation, and drafting of non-final text. No confidential or identifiable participant data was sent to external AI systems, and all AI-assisted code and text were reviewed by the authors before use. Editor-level and tool-level rules (the-science-repository.llm.code-workspace and .claude/settings.json) keep the assistant from reading data/raw/ and data/processed/.\nKeep only the sentences that are true for your project.",
+    "crumbs": [
+      "Home",
+      "About"
+    ]
+  }
+]

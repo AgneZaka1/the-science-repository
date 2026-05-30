@@ -1,0 +1,30 @@
+# GitHub Pages (Jekyll) config.
+#
+# Pages is served from the repository ROOT with Jekyll ON. With no index.html
+# at the root, Jekyll renders README.md as the themed landing page. The Quarto
+# website in renders/webpage/ is plain static HTML, so Jekyll copies it through
+# untouched — reachable at <site>/renders/webpage/.
+#
+# (GitHub Pages can only serve from "/" or "/docs"; serving from root is what
+# lets the site live in renders/ instead of docs/.)
+
+theme: jekyll-theme-minimal
+title: "The Science Repository"
+description: "A reproducible consumer decision-making analysis in R — workshop edition."
+
+# Keep source folders out of the published site (the rendered website in
+# renders/ is what gets served). Do NOT list renders/ here.
+exclude:
+  - R/
+  - data/
+  - reports/
+  - references/
+  - shiny/
+  - renv/
+  - renv.lock
+  - workshop_info/
+  - "*.Rproj"
+  - "*.code-workspace"
+  - ".Rprofile"
+  - ".Renviron.example"
+  - "README.md~"

@@ -1,0 +1,55 @@
+---
+title: "2 · Descriptives"
+subtitle: "Summarise the sample and look before you model"
+date: today
+---
+
+```{r setup}
+#| include: false
+source(file.path(rprojroot::find_root(rprojroot::is_git_root), "R", "01_setup.R"))
+clean <- get_clean_consumer_data()   # cached file from page 1, or rebuilt if absent
+```
+
+This page reads the cleaned dataset produced by
+[1 · Data preparation](01-data-preparation.qmd) and does two things every
+analysis should do before any model: **describe the sample** and **plot the
+patterns**.
+
+## Outcomes by condition
+
+`descriptives_by_condition()` lives in
+[`R/functions/analysis.R`](https://github.com/your-username/the-science-repository/blob/main/R/functions/analysis.R)
+and is shared with the manuscript, so the numbers can't drift between the two.
+
+```{r}
+#| label: tbl-desc
+#| tbl-cap: "Means and SDs of the key outcomes, by experimental condition."
+knitr::kable(descriptives_by_condition(clean), digits = 2)
+```
+
+The `combined_frame` row already stands out on `mean_pi` (purchase intention).
+The models on the next page test whether that difference holds up.
+
+## Look first
+
+```{r}
+#| label: fig-pi-by-cond
+#| fig-cap: "Purchase intention by condition. Red points are condition means; bars are 95% CIs."
+#| fig-width: 7
+#| fig-height: 4
+plot_pi_by_condition(clean)
+```
+
+Why might `combined_frame` do better? The scatter below is the clue: the frames
+also raise **perceived value**, and perceived value tracks purchase intention
+closely — the setup for a mediation story.
+
+```{r}
+#| label: fig-mediation-scatter
+#| fig-cap: "Perceived value (the mediator) versus purchase intention, coloured by condition."
+#| fig-width: 7
+#| fig-height: 4
+plot_mediation_scatter(clean)
+```
+
+Next: [3 · Analysis](03-analysis.qmd).

@@ -1,12 +1,14 @@
 # 01_setup.R --------------------------------------------------------------
-# Packages, paths, helpers, variable names. Source this first.
-# Every other R script and the Quarto walkthrough source this file, so the
-# project has exactly one place that decides "what packages do we use" and
-# "what is the outcome variable called."
+# Packages, paths, helpers, variable names. The reusable engine's entry point.
+# Every report (reports/webpage/*.qmd and reports/manuscript/*.qmd) runs
+# `source(here::here("R", "01_setup.R"))` first, so the project has exactly one
+# place that decides "what packages do we use" and "what is the outcome
+# variable called." This file defines things; it never writes files — the
+# reports own every save.
 
 # ---- 1. Packages --------------------------------------------------------
 required_packages <- c(
-  "here",        # project-based paths
+  "rprojroot",   # find the repo root from any sub-folder (see project_path)
   "readr",       # read_csv()
   "dplyr",       # data wrangling
   "tidyr",       # pivots
@@ -22,8 +24,15 @@ if (length(to_install) > 0) install.packages(to_install)
 invisible(lapply(required_packages, library, character.only = TRUE))
 
 # ---- 2. Paths -----------------------------------------------------------
-# `here::here()` always starts at the project root, no matter where the
-# script is sourced from. Never use setwd() or absolute paths.
+# `project_path()` always resolves from the repository root (the git root), no
+# matter which sub-folder a report renders from. We anchor on .git rather than
+# `here::here()` because each report is its own Quarto project, and here::here()
+# would stop at the report's folder instead of the repo root. Never use setwd()
+# or absolute paths.
+
+project_path <- function(...) {
+  file.path(rprojroot::find_root(rprojroot::is_git_root), ...)
+}
 
 data_mode <- function() {
   mode <- Sys.getenv("DATA_MODE", unset = "mock")
@@ -39,12 +48,11 @@ data_path <- function(...) {
   if (data_mode() == "real" && nzchar(base)) {
     file.path(base, ...)
   } else {
-    here::here("data", subdir, ...)
+    project_path("data", subdir, ...)
   }
 }
 
-processed_path <- function(...) here::here("data", "processed", ...)
-figure_path    <- function(...) here::here("figures", ...)
+processed_path <- function(...) project_path("data", "processed", ...)
 
 # ---- 3. Variable names (project glossary) -------------------------------
 # Keeping these in one place means renaming a variable touches one file,
@@ -59,9 +67,9 @@ predictor_var <- "condition"
 set.seed(20260602)
 
 # ---- 5. Load project functions ------------------------------------------
-source(here::here("R", "functions", "data_loading.R"))
-source(here::here("R", "functions", "analysis.R"))
-source(here::here("R", "functions", "plotting.R"))
+source(project_path("R", "functions", "data_loading.R"))
+source(project_path("R", "functions", "analysis.R"))
+source(project_path("R", "functions", "plotting.R"))
 
 message("Setup complete. DATA_MODE = ", data_mode(),
-        ". Project root: ", here::here())
+        ". Project root: ", project_path())

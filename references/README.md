@@ -1,6 +1,9 @@
 # `references/` — citations, one source of truth
 
-One `references.bib` for the whole repo. Used by Quarto reports, the LaTeX manuscript, and anywhere else you cite.
+One `references.bib` for the whole repo. The website reads it directly; the
+manuscript render copies it into [`../renders/manuscript/generated/`](../renders/manuscript/)
+so the Overleaf folder stays self-contained. Edit it in one place, everything
+re-cites on the next render.
 
 ## The Zotero workflow
 
@@ -12,18 +15,18 @@ One `references.bib` for the whole repo. Used by Quarto reports, the LaTeX manus
 
 Set Better BibTeX to `[auth:lower][year]` so keys look like `smith2020`. Then:
 
-- **Quarto:** `[@smith2020]` produces "(Smith, 2020)".
-- **LaTeX:** `\citep{smith2020}` does the same.
+- **Quarto (website):** `[@smith2020]` produces "(Smith, 2020)".
+- **LaTeX (manuscript):** `\citep{smith2020}` does the same.
 
 ## Citation style
 
-Drop a `.csl` file here (download from the [Zotero style repository](https://www.zotero.org/styles)) and reference it in each `.qmd`'s YAML:
+Drop a `.csl` file here (download from the [Zotero style repository](https://www.zotero.org/styles)) and reference it from a `.qmd`'s YAML or the webpage `_quarto.yml`:
 
 ```yaml
-csl: ../references/apa.csl
+csl: ../../references/apa.csl
 ```
 
-LaTeX uses `\bibliographystyle{}` instead — see [`../manuscript/README.md`](../manuscript/README.md).
+LaTeX uses `\bibliographystyle{}` instead — see [`../renders/manuscript/README.md`](../renders/manuscript/README.md).
 
 ## Why one shared `.bib`?
 

@@ -1,8 +1,12 @@
+# A small Shiny app that reuses the project's engine (R/functions/) and the
+# same mock data as the analysis — no logic is duplicated here.
 library(shiny)
-library(here)
 
-mock_data <- readr::read_csv(here::here("data", "mock", "consumer_data.csv"),
-                             show_col_types = FALSE)
+# Load the shared engine: packages, paths, cleaning functions, plot helpers.
+source(here::here("R", "01_setup.R"))
+
+# Same cleaned dataset the website and manuscript use (mock data by default).
+consumer <- get_clean_consumer_data()
 
 ui <- fluidPage(
   titlePanel("The Science Repository — example app"),
@@ -12,7 +16,7 @@ ui <- fluidPage(
                   min = 18, max = 80, value = c(25, 65))
     ),
     mainPanel(
-      plotOutput("score_hist"),
+      plotOutput("pi_plot"),
       tableOutput("summary")
     )
   )
@@ -20,18 +24,20 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   filtered <- reactive({
-    subset(mock_data, age >= input$age_range[1] & age <= input$age_range[2])
+    subset(consumer, age >= input$age_range[1] & age <= input$age_range[2])
   })
 
-  output$score_hist <- renderPlot({
-    hist(filtered()$score, main = NULL, xlab = "Score", col = "grey80", border = "white")
+  # Reuse the project's plotting function — same figure as on the website.
+  output$pi_plot <- renderPlot({
+    plot_pi_by_condition(filtered())
   })
 
   output$summary <- renderTable({
+    d <- filtered()
     data.frame(
-      n          = nrow(filtered()),
-      mean_score = round(mean(filtered()$score, na.rm = TRUE), 2),
-      sd_score   = round(sd(filtered()$score, na.rm = TRUE), 2)
+      n             = nrow(d),
+      mean_intention = round(mean(d$purchase_intention, na.rm = TRUE), 2),
+      sd_intention   = round(sd(d$purchase_intention, na.rm = TRUE), 2)
     )
   })
 }

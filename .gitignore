@@ -27,13 +27,14 @@ renv/python/
 renv/staging/
 
 # ---- Quarto / knitr build artefacts ----
-/.quarto/
+.quarto/
 *_files/
 *.html
 *.pdf
-# But DO commit the published site under docs/ and the manuscript PDFs in manuscript/output/
-!docs/**
-!manuscript/output/*.pdf
+# But DO commit everything under renders/ — that's the published website and
+# the compiled manuscript, the whole point of the folder. (LaTeX intermediates
+# like .aux/.log are re-ignored by the block further down, even under renders/.)
+!renders/**
 
 # ---- Sensitive data ----
 # Everything under data/raw/ and data/processed/ is private by default.

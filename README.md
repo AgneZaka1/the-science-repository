@@ -1,135 +1,91 @@
 # The Science Repository
 
-A template for a modern, reproducible science project in R (easily extendable to Python). Fork this, rename it, and start filling it up with your own data and coding pipelines.
+A template for a modern, reproducible science project in R. One git repository
+holds the **data**, the **analysis engine**, and two polished outputs built from
+it: a **website** that shows the whole analysis transparently, and a **journal
+manuscript**. Fork it, rename it, and fill it with your own work.
+
+> 📊 **[Open the full analysis website →](https://your-username.github.io/the-science-repository/renders/webpage/)**
+> Every cleaning step, figure, table, and model, rendered from the code in this repo.
 
 ---
 
 ## What lives where
 
-| Folder | What you put in it |
-| --- | --- |
-| [`R/`](R/) | All your R code — analysis scripts and reusable functions. |
-| [`data/`](data/) | Your data. `mock/` is committed, `raw/` and `processed/` are gitignored. |
-| [`reports/`](reports/) | Quarto sources (`.qmd`) — annotated code that becomes the website. |
-| [`docs/`](docs/) | Rendered Quarto output. GitHub Pages serves this folder. **Don't edit by hand.** |
-| [`manuscript/`](manuscript/) | LaTeX paper. Renders locally with Texifier/tinytex, syncs to Overleaf. |
-| [`shiny/`](shiny/) | A small Shiny app that reuses your data and functions. |
-| [`references/`](references/) | One `references.bib` exported from Zotero — used by both Quarto and LaTeX. |
-| [`figures/`](figures/) | Plots saved by your scripts. Committed so reviewers can see them without re-running. |
-| [`.claude/`](.claude/) | Permission rules that stop the LLM from reading your raw data. |
+Start here, then click into any folder's own README for the details.
+
+| Folder | What it holds | More |
+| --- | --- | --- |
+| [`R/`](R/) | The **analysis engine**: setup + reusable functions. The single source of truth for the numbers. Nothing runs on its own — the reports call it. | [R/README.md](R/README.md) |
+| [`data/`](data/) | Your data in three buckets: `mock/` (synthetic, committed), `raw/` and `processed/` (private, gitignored). | [data/README.md](data/README.md) |
+| [`reports/`](reports/) | The **recipes you render** — and nothing else. `webpage/` builds the site; `manuscript/` builds the paper. Both reuse the `R/` engine. | [reports/README.md](reports/README.md) |
+| [`renders/`](renders/) | The **rendered outputs**: the website in `webpage/`, the compiled paper in `manuscript/`. Don't hand-edit the website; the manuscript folder is mixed (see its README). | [renders/README.md](renders/README.md) |
+| [`references/`](references/) | One `references.bib`, shared by the website and the manuscript. | [references/README.md](references/README.md) |
+| [`shiny/`](shiny/) | A small interactive app that reuses the same data and functions. | [shiny/README.md](shiny/README.md) |
+| [`.claude/`](.claude/) | Permission rules that stop an LLM from reading your raw data. | [.claude/README.md](.claude/README.md) |
+
+The mental model: **`R/` computes, `reports/` present, `renders/` are the
+results.** Change a function in `R/` and both the website and the paper update on
+the next render — nothing is copied between them.
 
 ---
 
 ## Start here (first 10 minutes after forking)
 
-1. **Rename the project.** Edit this file's title and update the `name` in `the-science-repository.code-workspace`.
-2. **Open in RStudio or VS Code.** Both work. Open the folder, not individual files.
+1. **Rename the project.** Edit this file's title and the `name` in `the-science-repository.code-workspace`.
+2. **Open in RStudio or VS Code** — open the folder, not individual files.
 3. **Restore the R environment:**
    ```r
    install.packages("renv")   # only if you don't have it
    renv::restore()            # installs the exact package versions used here
    ```
-4. **Copy your env template:** `cp .Renviron.example .Renviron`. Edit `DATA_MODE=mock` (default) or `real`.
-5. **Run the pipeline end-to-end:**
+4. **Copy the env template:** `cp .Renviron.example .Renviron`. Leave `DATA_MODE=mock` (default) or set `real`.
+5. **Build the two outputs:**
    ```bash
-   Rscript R/02_data_processing.R   # raw -> clean
-   Rscript R/03_analysis.R          # models + figures
-   quarto render                    # website -> docs/
+   quarto render reports/webpage      # → renders/webpage/  (the website)
+   quarto render reports/manuscript   # → renders/manuscript/generated/  (paper inputs)
    ```
+   Then compile the paper: open [`renders/manuscript/main.tex`](renders/manuscript/) in Texifier (⌘B), or run `tinytex::latexmk("renders/manuscript/main.tex")`.
 
-If `renv::restore()` doesn't find a lockfile yet, you're the first author — run `renv::init()` instead. See [Environment management](#environment-management) below.
+---
 
 ## The example analysis
 
-The template ships with a synthetic consumer decision-making study (300 fake participants, 5 message-framing conditions). See [`reports/00_walkthrough.qmd`](reports/00_walkthrough.qmd) — it walks through loading, cleaning, descriptives, regression, mediation, and moderation, and renders to HTML/PDF/DOCX from one source. Replace the dataset and the walkthrough with your own when you fork.
+The template ships with a synthetic consumer decision-making study (300 fake
+participants, 5 message-framing conditions). Read it on the
+[website](https://your-username.github.io/the-science-repository/renders/webpage/):
+data preparation → descriptives → mediation/moderation analysis. Replace the
+dataset and the report pages with your own when you fork.
 
 ---
 
-## How the pieces fit together
+## How publishing works
 
-```
-Zotero ──► references/references.bib ──┐
-                                       │
-data/  ──► R/  ──► reports/*.qmd ──► docs/   (Quarto → website)
-                                  └► manuscript/  (LaTeX → PDF / Overleaf)
-                                  └► shiny/       (interactive app)
-                                  └► figures/     (static plots)
-```
+**Website → GitHub Pages.** Pages is served from the repository **root** with
+Jekyll on (`_config.yml`). Jekyll renders *this README* as the landing page and
+passes the rendered Quarto site in [`renders/webpage/`](renders/webpage/) through
+as static files, so it's reachable at `…github.io/<repo>/renders/webpage/`.
+Enable it once: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
 
-All outputs live in the same repo. One source of truth. One git history.
+> Why root and not `/docs`? GitHub Pages can only serve from `/` or `/docs`.
+> Serving from root with Jekyll is what lets the site live in `renders/` and lets
+> this README be the front door.
 
----
+**Manuscript → PDF / Overleaf.** `reports/manuscript/*.qmd` generate the
+data-driven parts of the paper (the methods/results text, figures, the model
+table) into [`renders/manuscript/generated/`](renders/manuscript/); the
+hand-written prose lives beside them in `renders/manuscript/sections/`.
+[`renders/manuscript/main.tex`](renders/manuscript/) assembles everything into
+`renders/manuscript/manuscript.pdf`. Because the whole `renders/manuscript/`
+folder is self-contained, you can sync it to Overleaf as a git subtree for
+co-authoring. See [renders/manuscript/README.md](renders/manuscript/README.md).
 
-## Environment management
-
-**Primary: `renv` (R packages).** Every project has its own pinned package library. The lockfile (`renv.lock`) goes into git; the actual library does not.
-
-```r
-renv::init()      # first time, in a new fork
-renv::snapshot()  # after you install new packages — updates the lockfile
-renv::restore()   # on a new machine — installs from the lockfile
-```
-
-**For Python (later in the workshop):** prefer `conda` for reproducibility across OSes.
-
-```bash
-conda create -n science-repo python=3.11
-conda activate science-repo
-conda env export --from-history > environment.yml   # commit this file
-```
-
-You can use renv and conda side by side. renv tracks R; conda tracks Python and any system-level binaries (e.g., `pandoc`, `quarto`, TeX). Don't mix the two for the same language.
+**App → Shiny.** `shiny::runApp("shiny/")` locally, or deploy to shinyapps.io.
 
 ---
 
-## Working with an LLM
+## Reproducibility & sensitive data
 
-You can use Claude in VS Code (or Cursor / Codex / Local LLM with LM Studio) to help you write code against this repo. To keep your raw data private:
-
-1. **The LLM only ever sees what VS Code sees.** Open VS Code with `the-science-repository.llm.code-workspace` — this workspace deliberately excludes `data/raw/` and `data/processed/`.
-2. **Belt and suspenders:** [`.claude/settings.json`](.claude/settings.json) denies reads on those folders even if you opened the full workspace.
-3. **Scripts default to mock data.** As long as `DATA_MODE=mock`, every read goes through `data/mock/`. Flip to `real` only when you're actually running the analysis.
-
-This means: Mode is controlled by which workspace you open and one env var.
-
----
-
-## Sensitive data: the rule
-
-Anything under `data/raw/` or `data/processed/` is gitignored, plus every common data extension (`.csv`, `.sav`, `.xlsx`, `.dta`, `.rds`, …) is gitignored everywhere except `data/mock/`. If you find yourself fighting the .gitignore, you're probably about to commit something you shouldn't.
-
-See [`.gitignore`](.gitignore) for the exact rules and [`data/README.md`](data/README.md) for the mock/raw/processed convention.
-
----
-
-## Publishing
-
-One source file, three commands, three folders. The orchestration file is [`reports/00_walkthrough.qmd`](reports/00_walkthrough.qmd):
-
-```bash
-quarto render reports/00_walkthrough.qmd --to html   # -> docs/reports/00_walkthrough.html
-quarto render reports/00_walkthrough.qmd --to pdf    # -> manuscript/output/walkthrough.pdf
-quarto render reports/00_walkthrough.qmd --to docx   # -> manuscript/output/walkthrough.docx
-```
-
-### How the routing works
-
-Quarto itself only knows one output folder: `output-dir: docs` (set in [`_quarto.yml`](_quarto.yml)). All formats land there first. A post-render hook then moves the non-HTML outputs to `manuscript/output/`:
-
-```yaml
-# _quarto.yml
-project:
-  type: website
-  output-dir: docs            # every render goes here first; needs to be called docs for github pages
-  post-render:
-    - scripts/post_render.R   # then this script moves .pdf and .docx out
-```
-
-[`scripts/post_render.R`](scripts/post_render.R) reads the `QUARTO_PROJECT_OUTPUT_FILES` env var (Quarto sets it to the list of files just produced), filters for `.pdf`/`.docx`, and moves them into `manuscript/output/`. HTML stays put so GitHub Pages can serve it. Add a third destination (e.g., slides) by editing those ~20 lines.
-
-- **GitHub Pages:** Settings → Pages → "Deploy from branch" → `main` / `docs`.
-- **PDF prerequisite:** `Rscript -e 'install.packages("tinytex"); tinytex::install_tinytex()'`. Without it, `--to pdf` fails; `--to html` and `--to docx` still work.
-- **For a hand-crafted journal manuscript:** edit `manuscript/main.tex` instead (Texifier or `tinytex::pdflatex()`), or push to Overleaf via git. See [`manuscript/README.md`](manuscript/README.md).
-- **App:** `shiny::runApp("shiny/")` locally, or deploy to shinyapps.io.
-
-Each folder's README walks you through the specifics.
+- **R packages** are pinned with [`renv`](https://rstudio.github.io/renv/) (`renv.lock`). Run `renv::restore()` on a new machine; `renv::snapshot()` after installing packages.
+- **Real data never gets committed.** Everything under `data/raw/` and `data/processed/` is gitignored, plus every common data extension everywhere except `data/mock/`. See [.gitignore](.gitignore) and [data/README.md](data/README.md).
+- **LLM safety.** Open the repo with `the-science-repository.llm.code-workspace` (hides raw/processed from the editor); [`.claude/settings.json`](.claude/settings.json) also blocks tool reads of those folders. Scripts default to `DATA_MODE=mock`.

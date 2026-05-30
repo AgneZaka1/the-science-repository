@@ -10,22 +10,24 @@
 
 > **Raw data is read-only. Processed data is reproducible from raw data. Mock data is what the world sees.**
 
-If a script crashes when you delete `data/processed/`, that's a feature — it forces the pipeline to stay reproducible.
+If a render fails after you delete `data/processed/`, that's a feature — the
+data-preparation report ([`reports/webpage/01-data-preparation.qmd`](../reports/webpage/01-data-preparation.qmd))
+rebuilds it from `mock/`, so the pipeline has to stay reproducible.
 
 ## Switching between mock and real
 
-Your scripts read from `data/mock/` by default. To use the real data, set `DATA_MODE=real` in your `.Renviron`:
+The reports read from `data/mock/` by default. To use the real data, set `DATA_MODE=real` in your `.Renviron`:
 
 ```
 DATA_MODE=real
 ```
 
-Then `R/01_setup.R` resolves `data_path("consumer_data.csv")` to `data/raw/consumer_data.csv`. Everything else in the analysis stays identical.
+Then `R/01_setup.R` resolves `data_path("consumer_data_raw.csv")` to `data/raw/consumer_data_raw.csv`. Everything else in the analysis stays identical.
 
 ## Why this split exists
 
 - **Privacy:** real data never leaves your machine. The .gitignore enforces it.
 - **Collaboration:** anyone who forks this repo can run the full pipeline against `mock/` without asking you for files.
-- **LLM safety:** on Day 3, the assistant only ever sees `mock/` — it cannot read what it cannot see.
+- **LLM safety:** the assistant only ever sees `mock/` — it cannot read what it cannot see.
 
-See the root [README](../README.md#working-with-an-llm-day-3) for the LLM workflow.
+See the root [README](../README.md) and [`.claude/`](../.claude/README.md) for the LLM workflow.

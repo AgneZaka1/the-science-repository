@@ -1,30 +1,26 @@
-# `reports/` — Quarto sources
+# `reports/` — the recipes you render
 
-Annotated code, prose, and results in one `.qmd` file each. This is where you write the story; [`docs/`](../docs/) is where the rendered website lands.
+This folder holds **only the sources you render**, split by what they produce.
+Each subfolder reuses the same engine in [`../R/`](../R/) but formats the results
+differently — a webpage needs interactive HTML tables; a paper needs LaTeX.
 
-## Convention
+| Subfolder | Renders to | What it is | More |
+| --- | --- | --- | --- |
+| [`webpage/`](webpage/) | [`../renders/webpage/`](../renders/webpage/) | A multi-page Quarto **website** — the transparent, click-through analysis. | [webpage/README.md](webpage/README.md) |
+| [`manuscript/`](manuscript/) | [`../renders/manuscript/`](../renders/manuscript/) | Quarto recipes that generate the data-driven parts of the **journal paper**. | [manuscript/README.md](manuscript/README.md) |
 
-- One `.qmd` per report or chapter: `01_overview.qmd`, `02_descriptives.qmd`, …
-- Sources live here; **rendered HTML never lives here.** That's `docs/`.
-- Reference data and functions through `here::here()` and the helpers in `R/01_setup.R`.
+## The split, in one line
+
+> **`reports/` = recipes. [`renders/`](../renders/) = results.** Recipes never
+> contain rendered output; results are never hand-written (except the
+> manuscript's prose — see its README).
 
 ## Render
 
-From the project root:
-
 ```bash
-quarto render reports/
+quarto render reports/webpage      # → ../renders/webpage/  (the website)
+quarto render reports/manuscript   # → ../renders/manuscript/generated/  (paper inputs)
 ```
 
-This writes the website to `docs/` (configured in `_quarto.yml`, which you'll add when you start your first report). GitHub Pages then serves `docs/` as your project site.
-
-## Citations
-
-Reference your `references/references.bib` from each `.qmd`'s YAML header:
-
-```yaml
-bibliography: ../references/references.bib
-csl: ../references/apa.csl
-```
-
-Cite with `[@smith2020]`. See [`references/README.md`](../references/README.md) for the Zotero workflow.
+Both pull data and functions from `../R/` by anchoring on the git root, so they
+run the same way no matter which folder you start from.

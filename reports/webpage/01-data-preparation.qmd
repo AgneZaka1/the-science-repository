@@ -1,0 +1,75 @@
+---
+title: "1 · Data preparation"
+subtitle: "From a messy CSV to a tidy dataset the rest of the site reads"
+date: today
+---
+
+```{r setup}
+#| include: false
+# Load the engine. We anchor on the git root because this report is its own
+# Quarto project, so here::here() would stop here instead of the repo root.
+source(file.path(rprojroot::find_root(rprojroot::is_git_root), "R", "01_setup.R"))
+```
+
+This page is the **first stage of the pipeline**. It loads the raw data, shows
+the realistic mess inside it, cleans it with the shared functions in
+[`R/functions/data_loading.R`](https://github.com/your-username/the-science-repository/blob/main/R/functions/data_loading.R),
+and **saves** the result to `data/processed/`. Every page after this one just
+reads that saved file — it never re-does the cleaning.
+
+The rule for this project: **nothing is redefined in a report.** The cleaning
+logic lives in `R/`; this page only `source()`s it and tells the story.
+
+## Load the raw data
+
+`load_raw_consumer_data()` reads from `data/mock/` (or `data/raw/`, depending on
+`DATA_MODE` — see [`R/01_setup.R`](https://github.com/your-username/the-science-repository/blob/main/R/01_setup.R)).
+
+```{r load}
+raw <- load_raw_consumer_data("consumer_data_raw.csv")
+dplyr::glimpse(raw)
+```
+
+The raw file is deliberately messy — mixed-case column names, trailing
+whitespace, `-99` missing codes, inconsistent gender labels, a reverse-scored
+item. The full inventory is in the
+[codebook](https://github.com/your-username/the-science-repository/blob/main/data/mock/codebook.md).
+
+## Clean it
+
+`clean_consumer_data()` does all of the repair in one place: standardises names
+with `janitor::clean_names()`, trims whitespace, recodes gender, turns `-99`
+into `NA`, reverse-scores `bt_3_r`, and averages each item set into a scale
+score.
+
+```{r clean}
+clean <- clean_consumer_data(raw)
+dplyr::glimpse(dplyr::select(clean, participant_id, condition, gender,
+                             income_group, purchase_intention,
+                             perceived_value, price_sensitivity))
+```
+
+A quick check that the conditions and the key scales survived cleaning:
+
+```{r check}
+levels(clean$condition)
+sapply(c("purchase_intention", "perceived_value", "price_sensitivity",
+         "brand_trust"),
+       \(v) sum(is.na(clean[[v]])))
+```
+
+## Save it for the rest of the site
+
+This is the one place that writes the cleaned dataset. Descriptives and
+analysis read it back with `get_clean_consumer_data()` — so the cleaning runs
+**once**, not on every page.
+
+```{r save}
+dir.create(processed_path(), recursive = TRUE, showWarnings = FALSE)
+saveRDS(clean, processed_path("consumer_clean.rds"))
+```
+
+`data/processed/` is gitignored, so the cleaned file never leaves your machine —
+it is rebuilt from the (committed) mock data whenever the site renders.
+
+Next: [2 · Descriptives](02-descriptives.qmd).

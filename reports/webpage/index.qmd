@@ -1,0 +1,53 @@
+---
+title: "The Science Repository"
+subtitle: "A reproducible consumer decision-making analysis in R"
+date: today
+toc: false
+---
+
+This website is the **transparent, click-through version of the whole project**:
+the code, the data cleaning, the figures, the tables, and the reasoning — all
+rendered from one git repository. It is built with [Quarto](https://quarto.org)
+from the sources in `reports/webpage/`, and every number you see was produced by
+the shared R engine in [`R/`](https://github.com/your-username/the-science-repository/tree/main/R).
+
+## The study in one paragraph
+
+Three hundred (simulated) shoppers each saw a product framed by one of five
+messages — a plain `control`, plus `scarcity`, `sustainability`, `social_proof`,
+and a `combined` frame — and then reported their attitudes and a hypothetical
+purchase decision. We ask three questions:
+
+1. Does the **message frame** raise **purchase intention**?
+2. Is that effect **mediated** by how much **value** people perceive?
+3. Is it **moderated** by how **price-sensitive** they are?
+
+## Read it in order
+
+The analysis is split into three short pages, each one stage of the pipeline:
+
+| Page | What it does |
+| --- | --- |
+| [1 · Data preparation](01-data-preparation.qmd) | Load the raw CSV, inspect the mess, clean it, and **save** the tidy dataset other pages read. |
+| [2 · Descriptives](02-descriptives.qmd) | Summarise the sample and **look** at the patterns before modelling. |
+| [3 · Analysis](03-analysis.qmd) | The main effect, the mediation, and the moderation models. |
+
+The [About](about.qmd) page holds the reproducibility, data-protection, and
+AI-use statements.
+
+## How this site is built
+
+Nothing here is copy-pasted. Each page calls the same functions from `R/` and
+reads the same cleaned dataset:
+
+```bash
+git clone https://github.com/your-username/the-science-repository
+cd the-science-repository
+R -e 'renv::restore()'        # install the exact package versions
+quarto render reports/webpage # builds this site into renders/webpage/
+```
+
+That is the workshop's core idea: **the `R/` folder is the single source of
+truth for the numbers; this website and the journal manuscript are just two ways
+of presenting them.** See the [project README](https://github.com/your-username/the-science-repository#readme)
+for the full folder map.

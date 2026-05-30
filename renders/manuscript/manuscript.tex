@@ -1,0 +1,52 @@
+% ===========================================================================
+% manuscript.tex — the ORCHESTRATOR. It owns the preamble and the \input order
+% of the paper; it holds no prose itself, and compiles to manuscript.pdf. This
+% whole folder (renders/manuscript/) is the unit you sync to Overleaf.
+%
+% Two kinds of inputs, two owners:
+%
+%   sections/*.tex      PROSE, no data. HAND-WRITTEN — live-edit on Overleaf.
+%
+%   generated/*.tex     GENERATED from the data by reports/manuscript/*.qmd
+%   generated/figures/  (the methods & results sections, the model table, the
+%   generated/tabs/     figures, and a copy of the bibliography). NEVER hand-edit
+%   generated/*.bib     these — re-render and they refresh:
+%                           quarto render reports/manuscript
+% ===========================================================================
+\documentclass[11pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\title{Framing effects on consumer purchase intention: \\
+       a mediation and moderation analysis}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract.tex}
+\end{abstract}
+
+% ---- Prose (hand-written, Overleaf-owned) ---------------------------------
+\input{sections/introduction.tex}
+
+% ---- Generated from reports/manuscript/*.qmd (do not hand-edit) -----------
+\input{generated/methods.tex}
+\input{generated/results.tex}
+
+% ---- Prose (hand-written, Overleaf-owned) ---------------------------------
+\input{sections/discussion.tex}
+
+% ---- Bibliography (generated/references.bib is copied from references/) ----
+% plainnat is natbib's author-year style, so \citet{} and \citep{} both work.
+\bibliographystyle{plainnat}
+\bibliography{generated/references}
+
+\end{document}

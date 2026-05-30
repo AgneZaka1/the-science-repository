@@ -1,6 +1,6 @@
 # data_loading.R ----------------------------------------------------------
 # Functions for loading and cleaning the consumer dataset.
-# Sourced by R/02_data_processing.R and by reports/00_walkthrough.qmd.
+# Part of the engine in R/; sourced (via R/01_setup.R) by every report.
 
 #' Load the raw consumer dataset from data/mock/ or data/raw/.
 #' @param file Name of the CSV inside `data/mock/` or `data/raw/`.
@@ -66,4 +66,16 @@ clean_consumer_data <- function(raw) {
 main_analysis_vars <- function() {
   c("purchase_intention", "condition", "perceived_value",
     "price_sensitivity", "age", "gender", "income_group")
+}
+
+#' Get the cleaned dataset.
+#'
+#' Reads the cached `data/processed/consumer_clean.rds` if it exists, otherwise
+#' rebuilds it from raw. The data-preparation report
+#' (`reports/webpage/01-data-preparation.qmd`) writes that cache; every report
+#' downstream calls this helper, so a single page renders even if the cache
+#' isn't there yet and a full render reuses the cache.
+get_clean_consumer_data <- function() {
+  cache <- processed_path("consumer_clean.rds")
+  if (file.exists(cache)) readRDS(cache) else clean_consumer_data(load_raw_consumer_data())
 }

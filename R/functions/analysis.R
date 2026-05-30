@@ -1,6 +1,6 @@
 # analysis.R --------------------------------------------------------------
 # Statistical models for the consumer decision-making analysis.
-# Sourced by R/03_analysis.R and by reports/00_walkthrough.qmd.
+# Part of the engine in R/; sourced (via R/01_setup.R) by every report.
 
 #' Descriptive table of outcomes by condition.
 descriptives_by_condition <- function(d) {

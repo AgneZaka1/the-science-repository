@@ -6,7 +6,7 @@ Drop your raw data files here. Everything in this folder except this README is g
 
 - **Read-only.** Your scripts read from here; they never write here.
 - **Original format.** If you received a `.sav`, keep it as `.sav`. Convert downstream.
-- **No edits by hand.** If a value is wrong, fix it in `R/02_data_processing.R` so the correction is documented and reproducible.
+- **No edits by hand.** If a value is wrong, fix it in `reports/webpage/01-data-preparation.qmd` and its linked `R/functions/data_loading.R` so the correction is documented and reproducible.
 
 ## Getting raw data onto a new machine
 

@@ -1,6 +1,6 @@
 # `data/processed/` — outputs of your cleaning pipeline
 
-Everything here is produced by your scripts (`R/02_data_processing.R` and friends). It is gitignored because it is reproducible: anyone with `data/raw/` and your code can rebuild it.
+Everything here is produced by your scripts. It is gitignored because it is reproducible: anyone with `data/raw/` and your code can rebuild it.
 
 ## Rules
 
