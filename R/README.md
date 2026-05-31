@@ -3,13 +3,13 @@
 All the R lives here, and **nothing in this folder runs on its own**. It defines
 the building blocks; the reports in [`../reports/`](../reports/) call them and do
 the actual work (including any saving). One source of truth for the numbers,
-reused by the website, the manuscript, and the Shiny app.
+reused by the website and the manuscript.
 
 ## What's here
 
 | File | What it is |
 | --- | --- |
-| [`01_setup.R`](01_setup.R) | The entry point. Loads packages, defines paths (`data_path()`, `processed_path()`), the variable glossary, and `source()`s the functions. Every report runs this first. **It never writes files.** |
+| [`01_setup.R`](01_setup.R) | The entry point. Loads packages, defines paths (`project_path()`, `processed_path()`), the variable glossary, and `source()`s the functions. Every report runs this first. **It never writes files.** |
 | [`functions/`](functions/) | Reusable, side-effect-free functions: loading & cleaning, models, plots. |
 
 ## How it's used
@@ -30,8 +30,9 @@ From there it calls functions like `clean_consumer_data()`,
   git root) — never `setwd()` or absolute paths. We use it instead of
   `here::here()` because each report is its own Quarto project, where
   `here::here()` would stop at the report folder rather than the repo root.
-- Read data through the helpers in `01_setup.R`; they respect `DATA_MODE`
-  (`mock` vs `real`) automatically.
+- Load data with `load_raw_consumer_data()`; it reads the committed mock data by
+  default. To use your own data, pass a different path (see
+  [`reports/webpage/01-data-preparation.qmd`](../reports/webpage/01-data-preparation.qmd)).
 - Functions are `snake_case`, verb-first (`load_raw_consumer_data()`), and pure
   where possible — take inputs, return outputs, don't save or print. Saving is
   the report's job.

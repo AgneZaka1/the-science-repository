@@ -21,7 +21,6 @@ Start here, then click into any folder's own README for the details.
 | [`reports/`](reports/) | The **recipes you render** — and nothing else. `webpage/` builds the site; `manuscript/` builds the paper. Both reuse the `R/` engine. | [reports/README.md](reports/README.md) |
 | [`renders/`](renders/) | The **rendered outputs**: the website in `webpage/`, the compiled paper in `manuscript/`. Don't hand-edit the website; the manuscript folder is mixed (see its README). | [renders/README.md](renders/README.md) |
 | [`references/`](references/) | One `references.bib`, shared by the website and the manuscript. | [references/README.md](references/README.md) |
-| [`shiny/`](shiny/) | A small interactive app that reuses the same data and functions. | [shiny/README.md](shiny/README.md) |
 | [`.claude/`](.claude/) | Permission rules that stop an LLM from reading your raw data. | [.claude/README.md](.claude/README.md) |
 
 The mental model: **`R/` computes, `reports/` present, `renders/` are the
@@ -39,8 +38,7 @@ the next render — nothing is copied between them.
    install.packages("renv")   # only if you don't have it
    renv::restore()            # installs the exact package versions used here
    ```
-4. **Copy the env template:** `cp .Renviron.example .Renviron`. Leave `DATA_MODE=mock` (default) or set `real`.
-5. **Build the two outputs:**
+4. **Build the two outputs:**
    ```bash
    quarto render reports/webpage      # → renders/webpage/  (the website)
    quarto render reports/manuscript   # → renders/manuscript/generated/  (paper inputs)
@@ -80,12 +78,10 @@ hand-written prose lives beside them in `renders/manuscript/sections/`.
 folder is self-contained, you can sync it to Overleaf as a git subtree for
 co-authoring. See [renders/manuscript/README.md](renders/manuscript/README.md).
 
-**App → Shiny.** `shiny::runApp("shiny/")` locally, or deploy to shinyapps.io.
-
 ---
 
 ## Reproducibility & sensitive data
 
 - **R packages** are pinned with [`renv`](https://rstudio.github.io/renv/) (`renv.lock`). Run `renv::restore()` on a new machine; `renv::snapshot()` after installing packages.
 - **Real data never gets committed.** Everything under `data/raw/` and `data/processed/` is gitignored, plus every common data extension everywhere except `data/mock/`. See [.gitignore](.gitignore) and [data/README.md](data/README.md).
-- **LLM safety.** Open the repo with `the-science-repository.llm.code-workspace` (hides raw/processed from the editor); [`.claude/settings.json`](.claude/settings.json) also blocks tool reads of those folders. Scripts default to `DATA_MODE=mock`.
+- **LLM safety.** Open the repo with `the-science-repository.llm.code-workspace` (hides raw/processed from the editor); [`.claude/settings.json`](.claude/settings.json) also blocks tool reads of those folders. The analysis reads the committed mock data by default.

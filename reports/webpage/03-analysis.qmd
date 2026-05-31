@@ -77,7 +77,7 @@ Every result on this page came from somewhere shared:
 | Citations `[@baron1986]` | [`references/references.bib`](https://github.com/your-username/the-science-repository/blob/main/references/references.bib) |
 
 Rename `purchase_intention` in `R/01_setup.R` and `R/functions/data_loading.R`
-— two files — and this website, the Shiny app, and the manuscript all follow.
+— two files — and this website and the manuscript all follow.
 
 ## References
 

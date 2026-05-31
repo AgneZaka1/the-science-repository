@@ -2,10 +2,14 @@
 # Functions for loading and cleaning the consumer dataset.
 # Part of the engine in R/; sourced (via R/01_setup.R) by every report.
 
-#' Load the raw consumer dataset from data/mock/ or data/raw/.
-#' @param file Name of the CSV inside `data/mock/` or `data/raw/`.
-load_raw_consumer_data <- function(file = "consumer_data_raw.csv") {
-  readr::read_csv(data_path(file), show_col_types = FALSE)
+#' Load the raw consumer dataset (defaults to the committed mock data).
+#'
+#' @param path Path to the CSV to read. Defaults to the synthetic
+#'   `data/mock/consumer_data_raw.csv`. To run the analysis on your own data,
+#'   pass a different path — e.g. `project_path("data", "raw", "my_data.csv")`
+#'   (`data/raw/` is gitignored, so private data never gets committed).
+load_raw_consumer_data <- function(path = project_path("data", "mock", "consumer_data_raw.csv")) {
+  readr::read_csv(path, show_col_types = FALSE)
 }
 
 #' Clean the raw consumer dataset.

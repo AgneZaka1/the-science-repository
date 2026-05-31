@@ -22,12 +22,20 @@ logic lives in `R/`; this page only `source()`s it and tells the story.
 
 ## Load the raw data
 
-`load_raw_consumer_data()` reads from `data/mock/` (or `data/raw/`, depending on
-`DATA_MODE` — see [`R/01_setup.R`](https://github.com/your-username/the-science-repository/blob/main/R/01_setup.R)).
+`load_raw_consumer_data()` reads the committed synthetic dataset in
+`data/mock/consumer_data_raw.csv` by default — so anyone who forks this repo can
+render the whole site without needing any private files.
 
 ```{r load}
-raw <- load_raw_consumer_data("consumer_data_raw.csv")
+raw <- load_raw_consumer_data()
 dplyr::glimpse(raw)
+```
+
+**Using your own data:** pass a path to your own file instead. Keep private data
+in `data/raw/` (it's gitignored, so it never gets committed):
+
+```r
+raw <- load_raw_consumer_data(project_path("data", "raw", "your_data.csv"))
 ```
 
 The raw file is deliberately messy — mixed-case column names, trailing
