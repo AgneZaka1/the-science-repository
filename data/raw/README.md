@@ -14,6 +14,5 @@ The raw files don't come with the repo. Common patterns:
 
 - Download from OSF / your institution's storage, drop into this folder.
 - Sync with `rclone` or `osfr::osf_download()` in a setup script.
-- For sensitive data, store the path in `.Renviron` and copy manually.
 
 When you set up a new fork, document here (in this README, after you fork) where your real data comes from.

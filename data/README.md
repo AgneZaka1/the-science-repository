@@ -14,15 +14,17 @@ If a render fails after you delete `data/processed/`, that's a feature — the
 data-preparation report ([`reports/webpage/01-data-preparation.qmd`](../reports/webpage/01-data-preparation.qmd))
 rebuilds it from `mock/`, so the pipeline has to stay reproducible.
 
-## Switching between mock and real
+## Using your own data
 
-The reports read from `data/mock/` by default. To use the real data, set `DATA_MODE=real` in your `.Renviron`:
+The analysis reads `data/mock/consumer_data_raw.csv` by default. To run it on your
+own data, drop your file in `raw/` (gitignored) and point the loader at it in
+[`reports/webpage/01-data-preparation.qmd`](../reports/webpage/01-data-preparation.qmd):
 
+```r
+raw <- load_raw_consumer_data(project_path("data", "raw", "your_data.csv"))
 ```
-DATA_MODE=real
-```
 
-Then `R/01_setup.R` resolves `data_path("consumer_data_raw.csv")` to `data/raw/consumer_data_raw.csv`. Everything else in the analysis stays identical.
+Everything downstream stays identical.
 
 ## Why this split exists
 

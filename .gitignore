@@ -64,7 +64,6 @@ data/processed/**
 
 # ...except in data/mock/ (synthetic, safe to share) and any explicit overrides:
 !data/mock/**
-!shiny/data/**
 
 # ---- LaTeX intermediates ----
 *.aux
