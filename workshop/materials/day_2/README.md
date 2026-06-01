@@ -23,7 +23,7 @@ The demo is one continuous story told in four moves, plus a visualisation
 interlude. Each file is runnable on its own and is heavily commented so it
 doubles as a take-home reference.
 
-| Act | File | The big idea | ~ time |
+| Pt. | File | The big idea | ~ time |
 | --- | --- | --- | --- |
 | **1 · Console** | [`01_console_basics.R`](01_console_basics.R) | R as a calculator → **values & types** → **assignment** (`<-`) → **vectors** → `NA` → **factors** → **functions** → **packages** | 30 min |
 | **2 · Script** | [`02_first_script.R`](02_first_script.R) | Why save code. The same ideas, now a **reproducible script** on the real CSV: read → inspect → clean → describe → plot → save. | 25 min |
@@ -37,7 +37,7 @@ Supporting material:
 | --- | --- |
 | [`FACILITATOR_GUIDE.md`](FACILITATOR_GUIDE.md) | The presenter. Beat-by-beat runbook: what to type, what to say, what to point at, deliberate errors to show, anticipated questions, timing, and cut/extend options. |
 | [`PARTICIPANT_HANDOUT.md`](PARTICIPANT_HANDOUT.md) | Participants. A two-page recap: the snippets, a glossary, the five errors you'll meet, and a "concept → where it lives in this repo" map. |
-| `05_report.html` | Everyone. A **pre-rendered copy** of the Act 4 report — a fallback to show if a live render misbehaves. |
+| `05_report.html` | Everyone. A **pre-rendered copy** of the Pt. 4 report — a fallback to show if a live render misbehaves. |
 
 ---
 
@@ -65,21 +65,21 @@ Supporting material:
 All commands assume the project is open (working directory = repo root).
 
 ```r
-# Act 1 — type lines into the Console live (Cmd/Ctrl + Enter), or:
+# Pt. 1 — type lines into the Console live (Cmd/Ctrl + Enter), or:
 source("workshop/materials/day_2/01_console_basics.R")
 
-# Act 2 — run the whole script ("Source", or Cmd/Ctrl + Shift + Enter)
+# Pt. 2 — run the whole script ("Source", or Cmd/Ctrl + Shift + Enter)
 source("workshop/materials/day_2/02_first_script.R")
 
-# Act 2½ — run ONE block at a time and watch the Plots pane build up the figure
+# Pt. 2½ — run ONE block at a time and watch the Plots pane build up the figure
 #          (don't source it whole — the point is to see each layer appear)
 
-# Act 3 — the engine (03) is sourced automatically by 04:
+# Pt. 3 — the engine (03) is sourced automatically by 04:
 source("workshop/materials/day_2/04_script_with_functions.R")
 ```
 
 ```bash
-# Act 4 — render the report to HTML (from a terminal at the repo root)
+# Pt. 4 — render the report to HTML (from a terminal at the repo root)
 quarto render workshop/materials/day_2/05_report.qmd
 ```
 
@@ -94,7 +94,7 @@ Acts 2 and 4 write a `pi_by_condition.csv` and `.png` into `_output/`
 - **← Day 1** grounded the concepts on slides (what R/RStudio/objects/packages
   *are*). This morning makes them **happen on screen, in order, on real data**.
 - **→ This afternoon** participants apply the *exact same pattern* to
-  [`reports/webpage/`](../../../reports/webpage/) with their own data. Act 4 is a
+  [`reports/webpage/`](../../../reports/webpage/) with their own data. Pt. 4 is a
   one-page rehearsal of `reports/webpage/01-data-preparation.qmd`.
 - **→ Day 3** is about coding agents (Claude Code, local models). Everything here
   trains the muscle Day 3 depends on: *reading code you didn't write, predicting
@@ -109,9 +109,9 @@ The workshop is built around the free, open book
 | This demo | R for Data Science chapter |
 | --- | --- |
 | Acts 1–2 (console, assignment, names) | [Workflow: basics](https://r4ds.hadley.nz/workflow-basics) |
-| Act 2 (read & clean) | [Data import](https://r4ds.hadley.nz/data-import) · [Data transformation](https://r4ds.hadley.nz/data-transform) |
-| Act 2 (the boxplot) | [Data visualisation](https://r4ds.hadley.nz/data-visualize) |
-| Act 3 (writing functions) | [Functions](https://r4ds.hadley.nz/functions) |
-| Act 4 (the report) | [Quarto](https://r4ds.hadley.nz/quarto) |
+| Pt. 2 (read & clean) | [Data import](https://r4ds.hadley.nz/data-import) · [Data transformation](https://r4ds.hadley.nz/data-transform) |
+| Pt. 2 (the boxplot) | [Data visualisation](https://r4ds.hadley.nz/data-visualize) |
+| Pt. 3 (writing functions) | [Functions](https://r4ds.hadley.nz/functions) |
+| Pt. 4 (the report) | [Quarto](https://r4ds.hadley.nz/quarto) |
 
 The matching printed cheat sheets are in [`workshop/cheat sheets/`](../../cheat%20sheets/).

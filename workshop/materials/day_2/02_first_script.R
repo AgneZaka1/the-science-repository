@@ -1,5 +1,5 @@
 # =============================================================================
-#  Day 2 · Act 2 — THE SCRIPT
+#  Day 2 · Pt. 2 — THE SCRIPT
 #  From throwaway console commands to a saved, re-runnable analysis.
 # =============================================================================
 #
@@ -139,5 +139,5 @@ message("Done. Wrote outputs to: ", out_dir)
 #  But notice something: the cleaning logic and the plotting logic are recipes
 #  we will want again — in a report, in a second analysis, tomorrow. Copy-paste
 #  is how mistakes spread (fix a bug in one copy, miss the other four).
-#  The fix is to give each recipe a NAME and define it once. That is Act 3.
+#  The fix is to give each recipe a NAME and define it once. That is Pt. 3.
 # =============================================================================

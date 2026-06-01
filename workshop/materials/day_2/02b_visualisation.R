@@ -1,5 +1,5 @@
 # =============================================================================
-#  Day 2 · Act 2½ — SEEING THE DATA
+#  Day 2 · Pt. 2½ — SEEING THE DATA
 #  Build one figure, one layer at a time, until it's publication-ready.
 # =============================================================================
 #

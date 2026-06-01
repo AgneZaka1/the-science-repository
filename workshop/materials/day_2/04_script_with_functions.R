@@ -1,5 +1,5 @@
 # =============================================================================
-#  Day 2 · Act 3 (payoff) — THE SAME ANALYSIS, USING THE ENGINE
+#  Day 2 · Pt. 3 (payoff) — THE SAME ANALYSIS, USING THE ENGINE
 #  Compare this file to 02_first_script.R. Same result, a fraction of the code.
 # =============================================================================
 #
@@ -25,7 +25,7 @@ library(ggplot2)
 # After this line, clean_consumer(), pi_by_condition() and plot_pi() exist
 # in the Environment, ready to call — just like library() makes functions
 # available, but for our own code. (03_functions.R also defines apa_msd(); we
-# don't need it here, but the report in Act 4 uses it for inline reporting.)
+# don't need it here, but the report in Pt. 4 uses it for inline reporting.)
 source(here::here("workshop", "materials", "day_2", "03_functions.R"))
 
 
@@ -50,12 +50,12 @@ write_csv(pi_summary, file.path(out_dir, "pi_by_condition.csv"))
 ggsave(file.path(out_dir, "pi_by_condition.png"),
        fig_pi, width = 7, height = 4, dpi = 300)
 
-message("Done — same outputs as Act 2, built from named functions.")
+message("Done — same outputs as Pt. 2, built from named functions.")
 
 
 # =============================================================================
 #  WHAT CHANGED, AND WHY IT MATTERS
-#  Act 2 and Act 4 produce identical results. But Act 4:
+#  Pt. 2 and Pt. 4 produce identical results. But Pt. 4:
 #    - is shorter and easier to read at a glance;
 #    - has no copy-pasted logic, so a fix happens in exactly one place;
 #    - reuses the same engine a report can also call (next: 05_report.qmd).

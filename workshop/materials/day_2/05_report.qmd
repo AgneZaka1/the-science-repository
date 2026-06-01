@@ -1,6 +1,6 @@
 ---
 title: "A first reproducible report"
-subtitle: "Day 2 · Act 4 — code, prose, and results in one document"
+subtitle: "Day 2 · Pt. 4 — code, prose, and results in one document"
 date: today
 format:
   html:

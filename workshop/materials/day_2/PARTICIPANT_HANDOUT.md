@@ -64,7 +64,7 @@ wrong" bugs are really **type** bugs. Check types *before* you model.
 
 ## The analysis skeleton (Acts 2–3)
 
-Almost every analysis is these six moves. In Act 2 we did them by hand; in Act 3
+Almost every analysis is these six moves. In Pt. 2 we did them by hand; in Pt. 3
 we named the recipes and called them.
 
 ```r
@@ -194,14 +194,14 @@ problem. (This is the most useful habit you'll build all week.)
 | describe + visualise | [`reports/webpage/02-descriptives.qmd`](../../../reports/webpage/02-descriptives.qmd) |
 | the dataset + what every column means | [`data/mock/codebook.md`](../../../data/mock/codebook.md) |
 
-This afternoon you do the grown-up version of Act 4 on your own data.
+This afternoon you do the grown-up version of Pt. 4 on your own data.
 
 ## Keep learning — R for Data Science (free, in `workshop/literature/`)
 
 - [Workflow basics](https://r4ds.hadley.nz/workflow-basics) — Acts 1–2
 - [Data transformation](https://r4ds.hadley.nz/data-transform) — cleaning
 - [Data visualisation](https://r4ds.hadley.nz/data-visualize) — the plot
-- [Functions](https://r4ds.hadley.nz/functions) — Act 3
-- [Quarto](https://r4ds.hadley.nz/quarto) — Act 4
+- [Functions](https://r4ds.hadley.nz/functions) — Pt. 3
+- [Quarto](https://r4ds.hadley.nz/quarto) — Pt. 4
 
 Matching cheat sheets are in [`workshop/cheat sheets/`](../../cheat%20sheets/).

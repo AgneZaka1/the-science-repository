@@ -1,10 +1,10 @@
 # =============================================================================
-#  Day 2 · Act 3 — FUNCTIONS (the "engine")
-#  Take the recipes from Act 2 and define each one ONCE, under a name.
+#  Day 2 · Pt. 3 — FUNCTIONS (the "engine")
+#  Take the recipes from Pt. 2 and define each one ONCE, under a name.
 # =============================================================================
 #
 #  WHAT IS A FUNCTION, AND WHY WRITE OUR OWN?
-#  In Act 1 we *called* functions other people wrote (mean, round, read_csv).
+#  In Pt. 1 we *called* functions other people wrote (mean, round, read_csv).
 #  Here we *write* our own. A function packages a sequence of steps under a
 #  name, with named inputs, so that:
 #     - you describe the recipe once, then reuse it by name;
@@ -79,7 +79,7 @@ plot_pi <- function(d) {
 
 # ---- Reporting helper ----------------------------------------------------
 # The engine doesn't only crunch numbers — it can format them too. This one
-# writes a mean and SD the way a journal expects, so the *report* (Act 4) can
+# writes a mean and SD the way a journal expects, so the *report* (Pt. 4) can
 # drop a live, correctly-styled statistic straight into a sentence.
 
 #' Format a vector's mean and SD in APA (7th ed.) style.
