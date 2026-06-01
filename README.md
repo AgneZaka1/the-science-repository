@@ -38,12 +38,14 @@ the next render — nothing is copied between them.
    install.packages("renv")   # only if you don't have it
    renv::restore()            # installs the exact package versions used here
    ```
-4. **Build the two outputs:**
+4. **Build the outputs:**
    ```bash
    quarto render reports/webpage      # → renders/webpage/  (the website)
-   quarto render reports/manuscript   # → renders/manuscript/generated/  (paper inputs)
+   quarto render reports/manuscript   # → renders/manuscript/generated/  (LaTeX + Word)
    ```
-   Then compile the paper: open [`renders/manuscript/main.tex`](renders/manuscript/) in Texifier (⌘B), or run `tinytex::latexmk("renders/manuscript/main.tex")`.
+   The manuscript render produces the data-driven methods + results in **two
+   formats at once**: a LaTeX fragment and an APA-styled `methods_and_results.docx`.
+   Then compile the paper to **PDF**: open [`renders/manuscript/manuscript.tex`](renders/manuscript/) in Texifier (⌘B), or run `tinytex::latexmk("renders/manuscript/manuscript.tex")`.
 
 ---
 
@@ -69,14 +71,17 @@ Enable it once: **Settings → Pages → Deploy from a branch → `main` / `/ (r
 > Serving from root with Jekyll is what lets the site live in `renders/` and lets
 > this README be the front door.
 
-**Manuscript → PDF / Overleaf.** `reports/manuscript/*.qmd` generate the
-data-driven parts of the paper (the methods/results text, figures, the model
-table) into [`renders/manuscript/generated/`](renders/manuscript/); the
-hand-written prose lives beside them in `renders/manuscript/sections/`.
-[`renders/manuscript/main.tex`](renders/manuscript/) assembles everything into
-`renders/manuscript/manuscript.pdf`. Because the whole `renders/manuscript/`
-folder is self-contained, you can sync it to Overleaf as a git subtree for
-co-authoring. See [renders/manuscript/README.md](renders/manuscript/README.md).
+**Manuscript → PDF / Word / Overleaf.** [`reports/manuscript/methods_and_results.qmd`](reports/manuscript/)
+generates the data-driven parts of the paper (the methods/results text, figures,
+and the model table) into [`renders/manuscript/generated/`](renders/manuscript/);
+the hand-written prose lives beside them in `renders/manuscript/sections/`. One
+`quarto render reports/manuscript` produces that content in **two formats at
+once** — a LaTeX fragment *and* an APA-styled `methods_and_results.docx` (the
+"knit to Word" output you get for free). [`renders/manuscript/manuscript.tex`](renders/manuscript/)
+then assembles the LaTeX into `renders/manuscript/manuscript.pdf`. Because the
+whole `renders/manuscript/` folder is self-contained, you can sync it to Overleaf
+as a git subtree for co-authoring. See
+[renders/manuscript/README.md](renders/manuscript/README.md).
 
 ---
 

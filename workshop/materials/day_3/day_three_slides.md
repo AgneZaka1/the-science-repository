@@ -36,6 +36,86 @@ Part G — Wrap-up
 
 ---
 
+# Part C — Quarto in depth
+
+> Only the **output-formats** slides are written out here (they explain the Word
+> output added to the repo). The rest of Part C — anatomy of a `.qmd`, chunk
+> options, common Quarto errors — is still to be built.
+
+## Slide C1 — One source, LaTeX and Word
+
+**Title:** Hit Render — get the paper in two formats
+
+**On slide:**
+
+```text
+The GENERATED sections (methods + results) live in ONE Quarto file.
+One render → two formats, both straight from the R/ engine. Nothing copied by hand.
+
+  reports/manuscript/methods_and_results.qmd     methods + results (markdown + R)
+        │   quarto render reports/manuscript   (or the Render button)
+        ├─▶ LaTeX   generated/methods_and_results.tex   →  manuscript.tex → PDF / Overleaf
+        └─▶ Word    generated/methods_and_results.docx  →  APA-styled .docx
+
+Hand-written intro & discussion stay in sections/*.tex (LaTeX, Overleaf-edited).
+Change a function or a sentence → re-render → both formats update.
+```
+
+**Speaker note:**
+This is the Day 1 promise — *one source → HTML, PDF, Word* (Slide 33) — made
+concrete for the paper. Note the split the repo is careful about: the file is
+named `methods_and_results` because everything in it is **generated** from the
+data, while the introduction and discussion are **hand-written** LaTeX in
+`sections/`. The figures and numbers come from the `R/` engine, so no output can
+drift from the analysis. Word matters because co-authors and journal submission
+portals often live in `.docx`, not LaTeX — and the next slide shows that it's
+the *same render*, not a separate tool.
+
+---
+
+## Slide C2 — One `quarto render`, two formats
+
+**Title:** The knit-to-Word magic, declared in YAML
+
+**On slide:**
+
+```text
+A real render (the RStudio / VS Code Render button works too) — no script:
+
+  quarto render reports/manuscript
+        ├─▶ generated/methods_and_results.tex    vector PDF figures, booktabs table
+        └─▶ generated/methods_and_results.docx   300-dpi PNG figures, Word table
+
+It's just two formats in the YAML (_quarto.yml):
+  format:
+    latex:  { template: _fragment.tex }      # body-only fragment for manuscript.tex
+    docx:   { reference-doc: reference.docx } # APA styling for Word
+
+Quarto renders the SAME .qmd each way:
+  - markdown headings + @fig-/@tbl- cross-references work in both
+  - figures: vector PDF for LaTeX, embedded PNG for Word — no manual export
+
+Use Word for: Track-Changes co-authors · .docx-only submission portals.
+```
+
+**Speaker note:**
+This is the "click Render, get Word" experience from the R Markdown days, now in
+Quarto: the Word output isn't a post-processing script, it's a second `format:`
+in the YAML, so one render produces both. Only the *generated* sections go to
+Word; the hand-written intro/discussion stay LaTeX-only. The APA look comes from
+`reference.docx` (swap in your journal's template). For APA-exact citations, drop
+an `apa.csl` into `references/` and add `csl:` to the `docx` format.
+
+**To build out:**
+
+```text
+- live demo: hit Render → open methods_and_results.docx side by side with the PDF
+- contrast with the website's HTML output (same engine, different format)
+- where Word breaks down vs LaTeX (fine equation / table control)
+```
+
+---
+
 # Part D — Running on your own data
 
 ## Slide D1 — From mock to your own data: change one path

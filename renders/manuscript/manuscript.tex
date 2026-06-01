@@ -7,17 +7,25 @@
 %
 %   sections/*.tex      PROSE, no data. HAND-WRITTEN — live-edit on Overleaf.
 %
-%   generated/*.tex     GENERATED from the data by reports/manuscript/*.qmd
-%   generated/figures/  (the methods & results sections, the model table, the
-%   generated/tabs/     figures, and a copy of the bibliography). NEVER hand-edit
-%   generated/*.bib     these — re-render and they refresh:
-%                           quarto render reports/manuscript
+%   generated/methods_and_results.tex  GENERATED from the data by
+%   generated/methods_and_results_files/  reports/manuscript/methods_and_results.qmd
+%   generated/*.bib                    (the methods & results sections with their
+%                                       figures and the model table inline, plus a
+%                                       copy of the bibliography). NEVER hand-edit
+%                                       these — re-render and they refresh:
+%                                           quarto render reports/manuscript
 % ===========================================================================
 \documentclass[11pt]{article}
 
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+% Quarto writes the generated figure paths relative to generated/, so point
+% graphicx there; the generated table uses longtable/array/calc.
+\graphicspath{{generated/}}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
 \usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{hyperref}
@@ -37,9 +45,8 @@
 % ---- Prose (hand-written, Overleaf-owned) ---------------------------------
 \input{sections/introduction.tex}
 
-% ---- Generated from reports/manuscript/*.qmd (do not hand-edit) -----------
-\input{generated/methods.tex}
-\input{generated/results.tex}
+% ---- Generated from reports/manuscript/methods_and_results.qmd (do not edit) ----
+\input{generated/methods_and_results.tex}
 
 % ---- Prose (hand-written, Overleaf-owned) ---------------------------------
 \input{sections/discussion.tex}

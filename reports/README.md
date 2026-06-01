@@ -24,3 +24,7 @@ quarto render reports/manuscript   # → ../renders/manuscript/generated/  (pape
 
 Both pull data and functions from `../R/` by anchoring on the git root, so they
 run the same way no matter which folder you start from.
+
+One `quarto render reports/manuscript` produces the data-driven methods + results
+in two formats at once — the **LaTeX** fragment (for Overleaf / PDF) and an
+APA-styled **Word** `.docx`. See [manuscript/README.md](manuscript/README.md).

@@ -1,13 +1,28 @@
-# The manuscript section recipes render to LaTeX *fragments* (body only, via
-# _fragment.tex) and land in renders/manuscript/generated/ — next to the
-# hand-written prose in renders/manuscript/sections/, but in their own folder so
-# a render can never overwrite prose.
+# methods_and_results.qmd renders to TWO formats from one source, both landing in
+# renders/manuscript/generated/ next to the hand-written prose:
+#
+#   latex → a body-only fragment (via _fragment.tex) that manuscript.tex \inputs,
+#           feeding the LaTeX / Overleaf / PDF path. No PDF is compiled here —
+#           Overleaf or your local LaTeX engine does that.
+#   docx  → a self-contained, APA-styled Word document (reference.docx) — the
+#           "knit to Word" output of the generated methods + results.
+#
+# One `quarto render reports/manuscript` produces both.
 project:
   output-dir: ../../renders/manuscript/generated
 
 format:
   latex:
     template: _fragment.tex
+  docx:
+    reference-doc: reference.docx
+    # For APA-exact citations, drop an apa.csl into references/ and add
+    #   csl: ../../references/apa.csl
+    # here (see references/README.md).
+
+# High-resolution raster figures for the Word output (the LaTeX build uses the
+# vector PDF version, where dpi is irrelevant).
+fig-dpi: 300
 
 execute:
   echo: false

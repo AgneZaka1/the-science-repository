@@ -1,0 +1,122 @@
+---
+title: "Methods and Results (generated sections)"
+---
+
+```{r setup}
+#| include: false
+# Anchor on the git root: this report is its own Quarto project.
+source(file.path(rprojroot::find_root(rprojroot::is_git_root), "R", "01_setup.R"))
+clean <- get_clean_consumer_data()
+
+n_total <- nrow(clean)
+n_cond  <- nlevels(clean$condition)
+
+# ---- Fit the shared models (defined once in R/functions/analysis.R) -------
+fit_main <- fit_main_model(clean)
+med      <- fit_mediation_models(clean)
+fit_mod  <- fit_moderation_model(clean)
+
+tidy_main <- broom::tidy(fit_main, conf.int = TRUE)
+b_comb <- tidy_main$estimate[tidy_main$term == "conditioncombined_frame"]
+p_comb <- tidy_main$p.value[tidy_main$term == "conditioncombined_frame"]
+
+# Keep the Overleaf-synced folder self-contained: copy the one shared
+# bibliography into renders/manuscript/generated/ so manuscript.tex resolves it
+# both locally and on Overleaf (which only syncs the renders/manuscript/ folder).
+gen_dir <- project_path("renders", "manuscript", "generated")
+dir.create(gen_dir, recursive = TRUE, showWarnings = FALSE)
+file.copy(project_path("references", "references.bib"),
+          file.path(gen_dir, "references.bib"), overwrite = TRUE)
+```
+
+```{=latex}
+% GENERATED FROM reports/manuscript/methods_and_results.qmd — DO NOT EDIT BY HAND.
+% Edit the prose in the .qmd, then: quarto render reports/manuscript
+```
+
+# Methods
+
+We analysed a simulated consumer decision-making dataset of `r n_total`
+participants, each randomly assigned to one of `r n_cond` message-framing
+conditions (a plain control plus scarcity, sustainability, social-proof, and
+combined frames). After viewing the framed product, participants reported
+multi-item measures of price sensitivity, sustainability concern, brand trust,
+and perceived value, followed by their purchase intention and a hypothetical
+buy decision.
+
+Multi-item scales were averaged into composite scores after reverse-scoring the
+relevant brand-trust item, and a value of $-99$ was treated as missing. Data
+were cleaned with scripted, version-controlled steps; the full codebook and
+cleaning code live in the project repository. All models were estimated in R
+with ordinary least squares (`lm`). Every figure and table in this paper is
+generated directly from the analysis code, so the reported numbers cannot drift
+from the analysis.
+
+# Results
+
+## Main effect
+
+Relative to the control frame, the combined frame raised purchase intention by
+`r sprintf("%.2f", b_comb)` points on the seven-point scale
+($p = `r sprintf("%.3f", p_comb)`$). @fig-pi-by-condition shows the full pattern
+across conditions.
+
+```{r}
+#| label: fig-pi-by-condition
+#| fig-cap: "Purchase intention by condition. Red points are condition means with 95% confidence intervals."
+#| fig-width: 7
+#| fig-height: 4
+plot_pi_by_condition(clean)
+```
+
+## Mediation through perceived value
+
+The frames also shifted perceived value upward, and perceived value strongly
+predicted purchase intention (@fig-mediation-scatter); adding it to the outcome
+model attenuated the condition coefficients, the signature of an indirect path.
+
+```{r}
+#| label: fig-mediation-scatter
+#| fig-cap: "Perceived value predicts purchase intention; the frames shift perceived value upward, producing an indirect path."
+#| fig-width: 7
+#| fig-height: 4
+plot_mediation_scatter(clean)
+```
+
+## Moderation by price sensitivity
+
+The combined-frame boost was attenuated among the most price-sensitive
+respondents (@fig-moderation).
+
+```{r}
+#| label: fig-moderation
+#| fig-cap: "Condition $\\times$ price sensitivity: the combined-frame boost shrinks for high-price-sensitive respondents."
+#| fig-width: 7
+#| fig-height: 4
+plot_moderation(clean)
+```
+
+## Model estimates
+
+@tbl-models collects the coefficients behind the figures above. It is generated
+by `reports/manuscript/methods_and_results.qmd` straight from the fitted models,
+so the paper's numbers track the analysis exactly.
+
+```{r}
+#| label: tbl-models
+#| tbl-cap: "Model estimates with 95% confidence intervals."
+dplyr::bind_rows(
+  total       = broom::tidy(med$total, conf.int = TRUE),
+  mediator    = broom::tidy(med$a,     conf.int = TRUE),
+  outcome_w_m = broom::tidy(med$b,     conf.int = TRUE),
+  moderation  = broom::tidy(fit_mod,   conf.int = TRUE),
+  .id = "model"
+) |>
+  dplyr::transmute(
+    Model = model, Term = term,
+    Estimate = round(estimate, 2), SE = round(std.error, 2),
+    `CI low` = round(conf.low, 2), `CI high` = round(conf.high, 2),
+    p = round(p.value, 3)
+  ) |>
+  knitr::kable(booktabs = TRUE)
+```
