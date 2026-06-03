@@ -1,6 +1,6 @@
 # Day 2 · Pt. 1 — The Console
 
-A crash course in the building blocks of R: values, types, assignment, vectors, factors, functions, and packages.
+A crash course in the building blocks of R: values, types, assignment, vectors, factors, functions, loops, and packages.
 
 ## How to use this file
 
@@ -225,7 +225,102 @@ Reading help pages is a core skill — every function's inputs are listed there.
 
 ------------------------------------------------------------------------
 
-## 8. Packages: borrowing more functions
+## 8. Loops: doing something many times
+
+Back in section 4 we said R is vectorised — `ages + 1` adds one to every element with no loop in sight. That is true for *arithmetic*. But sometimes you want to repeat an *action* that isn't a simple sum: print a message, fit a model, read a file. That is what a loop is for.
+
+### The `for` loop — a compliment generator
+
+The `for` loop walks through a vector one element at a time and runs the same block of code for each. Read the first line as: "for each `word` in `compliments`, do the body once."
+
+``` r
+compliments <- c("brilliant", "thoughtful", "unstoppable")
+
+for (word in compliments) {
+  print(paste("You are", word))
+}
+#> [1] "You are brilliant"
+#> [1] "You are thoughtful"
+#> [1] "You are unstoppable"
+```
+
+`word` is just a name *you* chose; on each pass it takes the next value from the vector. The body is everything inside the curly braces `{ }`.
+
+Now the fun one — a Cards-Against-Humanity-style combination machine. A loop *inside* a loop runs the inner loop completely for every single step of the outer loop, so you get every combination:
+
+``` r
+openers <- c("Reviewer 2 thinks",  "My supervisor says")
+gripes  <- c("the sample is too small.", "you need more controls.")
+
+for (opener in openers) {
+  for (gripe in gripes) {
+    print(paste(opener, gripe))
+  }
+}
+#> [1] "Reviewer 2 thinks the sample is too small."
+#> [1] "Reviewer 2 thinks you need more controls."
+#> [1] "My supervisor says the sample is too small."
+#> [1] "My supervisor says you need more controls."
+#>  (2 openers x 2 gripes = 4 lines: every pairing)
+```
+
+A `for` loop is the right tool when you do something for its *side effect* — printing, saving a file, drawing a plot. But when you want to *collect a result back* for each item, there is a cleaner tool.
+
+### `lapply` / `map` — run one recipe on many things at once
+
+Imagine you have three experimental groups' purchase-intention scores, one vector per group, kept together in a named *list*:
+
+``` r
+by_condition <- list(
+  control  = c(4, 5, 4, 6),
+  scarcity = c(6, 7, 5, 7),
+  combined = c(5, 6, 7, 6)
+)
+```
+
+`lapply` ("list-apply") runs one function on *every* element of the list and hands you back a list of results — no loop counter, no growing a variable by hand:
+
+``` r
+lapply(by_condition, mean)
+#> $control
+#> [1] 4.75
+#>
+#> $scarcity
+#> [1] 6.25
+#>
+#> $combined
+#> [1] 6
+```
+
+`sapply` ("simplify-apply") does the same thing but tidies the answer into a named vector when it can:
+
+``` r
+sapply(by_condition, mean)
+#>  control scarcity combined
+#>     4.75     6.25     6.00
+```
+
+We just computed a mean per group. The point is the *pattern*, not the `mean`: swap `mean` for any function — `sd`, one of your own functions from Pt. 3, or a model-fitting function like `lm` — and you have run that entire analysis once per group, in a single line.
+
+``` r
+sapply(by_condition, sd)      # same loop, different recipe
+#>   control  scarcity  combined
+#> 0.9574271 0.9574271 0.8164966
+```
+
+That is the everyday use of this family: **fit the same model to each condition, each survey wave, or each of 50 data files — and get back one result per input.** The tidyverse spells it `purrr::map()` and reads almost identically:
+
+``` r
+# library(purrr)
+# map(by_condition, mean)        # same as lapply, tidyverse style -> a list
+# map_dbl(by_condition, mean)    # same as sapply -> a numeric vector
+```
+
+Whichever you reach for, the idea is one sentence: **describe what to do once, and let R repeat it across every item.**
+
+------------------------------------------------------------------------
+
+## 9. Packages: borrowing more functions
 
 Everything so far is "base R" — built in. base R already gives you every common descriptive statistic, each as its own function:
 
@@ -279,7 +374,7 @@ Where do packages come from, and why does this project "just work" on a fresh co
 
 ------------------------------------------------------------------------
 
-## 9. A data frame: the shape of real data
+## 10. A data frame: the shape of real data
 
 Columns (vectors) of the same length, side by side, make a *data frame* — R's version of a spreadsheet or an SPSS data view. Rows are observations (here, participants); columns are variables.
 
@@ -315,5 +410,6 @@ Everything we just did by hand — types, vectors, factors, NA, functions — is
 - A column is a vector; a table of vectors is a data frame.
 - NA means unknown and spreads; use `na.rm = TRUE` to ignore it.
 - Functions are `name(arguments)`; packages bundle extra functions you `library()` in once per session.
+- A `for` loop repeats an action; `lapply`/`sapply`/`map` run one function across many items and collect the results — "say it once, repeat it everywhere".
 
 **NEXT:** `02_first_script.R` — the same ideas, on the real consumer dataset, saved as a script you can re-run.
